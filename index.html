@@ -7,9 +7,65 @@
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="scss/index.scss" />
+    <link rel="stylesheet" href="dist/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <title>Bid House</title>
   </head>
 
-  <body></body>
+  <body>
+    <header class="bg-black header w-100">
+      <nav>
+        <div class="d-flex align-items-end justify-content-between">
+          <a href="index.html" class="navbar-brand m-1"
+            ><img
+              src="/pictures/logo.png"
+              alt="bidhouse logo"
+              id="bidHouseLogo"
+          /></a>
+          <i
+            class="fa-solid fa-bars text-white my-1 mx-3 h4"
+            id="haburgerMenuIcon"
+          ></i>
+        </div>
+        <div class="hamburger-menu" id="hiddenMenu">
+          <div class="bg-white d-flex justify-content-end">
+            <ul
+              class="list-unstyled d-flex flex-column align-items-end bg-black w-35"
+            >
+              <li class="nav-item h5">
+                <a href="#" class="nav-link text-white my-2 mt-3 mx-4">Login</a>
+              </li>
+              <li class="nav-item h5">
+                <a href="#" class="nav-link text-white my-2 mx-4">Signup</a>
+              </li>
+              <li class="nav-item h5">
+                <a href="#" class="nav-link text-white my-2 mx-4">Auction</a>
+              </li>
+              <li class="nav-item h5">
+                <a href="#" class="nav-link text-white my-2 mx-4">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main></main>
+    <footer class="bg-black">
+      <script src="js/hamburgerToggle.mjs" type="module"></script>
+      <ul class="list-unstyled d-flex flex-column bg-black w-35">
+        <li class="nav-item fs-5">
+          <a href="#" class="nav-link text-white my-1 mx-4">Auction</a>
+        </li>
+        <li class="nav-item fs-5">
+          <a href="#" class="nav-link text-white my-1 mx-4">Profile</a>
+        </li>
+        <li class="nav-item fs-5">
+          <a href="#" class="nav-link text-white my-1 mx-4">Sell an Item</a>
+        </li>
+      </ul>
+    </footer>
+  </body>
 </html>

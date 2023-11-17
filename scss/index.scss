@@ -1,0 +1,14 @@
+$myColors: (
+  'golden': #d0a933,
+  'lime': #14ff00,
+);
+#bidHouseLogo {
+  max-height: 100px;
+}
+.hamburger-menu {
+  display: none !important;
+}
+@import '../node_modules/bootstrap/scss/_functions';
+@import '../node_modules/bootstrap/scss/_variables';
+$theme-colors: map-merge($theme-colors, $myColors);
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
