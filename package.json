@@ -4,7 +4,8 @@
   "description": "Semester project 2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass --watch scss:dist",
+    "build": "sass scss:dist",
     "prepare": "husky install"
   },
   "author": "mathias gauslå",
@@ -13,7 +14,8 @@
     "eslint": "^8.53.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
-    "prettier": "^3.1.0"
+    "prettier": "^3.1.0",
+    "sass": "^1.69.5"
   },
   "lint-staged": {
     "*.js": [
@@ -29,5 +31,8 @@
     "*.md": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2"
   }
 }
