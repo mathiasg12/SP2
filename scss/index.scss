@@ -8,6 +8,29 @@ $myColors: (
 .hamburger-menu {
   display: none !important;
 }
+.nav-link:hover,
+.nav-link:active {
+  background-color: white;
+
+  border-radius: 15%;
+  color: black !important;
+  transition: 0.7s ease-in-out 0.5s;
+}
+.footer-item:hover,
+.footer-item:active {
+  color: #7e95fc !important;
+}
+@media only screen and (min-width: 769px) {
+  #bidHouseLogo {
+    max-height: 120px;
+    min-width: 180px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  #hiddenMenu {
+    background-color: white;
+  }
+}
 @import '../node_modules/bootstrap/scss/_functions';
 @import '../node_modules/bootstrap/scss/_variables';
 $theme-colors: map-merge($theme-colors, $myColors);

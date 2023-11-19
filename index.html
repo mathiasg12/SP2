@@ -17,7 +17,7 @@
 
   <body>
     <header class="bg-black header w-100">
-      <nav>
+      <nav class="d-md-flex flex-md-column">
         <div class="d-flex align-items-end justify-content-between">
           <a href="index.html" class="navbar-brand m-1"
             ><img
@@ -26,44 +26,65 @@
               id="bidHouseLogo"
           /></a>
           <i
-            class="fa-solid fa-bars text-white my-1 mx-3 h4"
+            class="fa-solid fa-bars text-white my-1 mx-3 h4 d-md-none"
             id="haburgerMenuIcon"
           ></i>
         </div>
-        <div class="hamburger-menu" id="hiddenMenu">
-          <div class="bg-white d-flex justify-content-end">
+        <div
+          class="hamburger-menu d-md-flex w-100 justify-content-md-center"
+          id="hiddenMenu"
+        >
+          <div class="d-flex justify-content-end justify-content-md-center">
             <ul
-              class="list-unstyled d-flex flex-column align-items-end bg-black w-35"
+              class="list-unstyled d-flex flex-column flex-md-row align-items-end bg-black w-35 my-md-1"
             >
               <li class="nav-item h5">
-                <a href="#" class="nav-link text-white my-2 mt-3 mx-4">Login</a>
+                <a
+                  href="#"
+                  class="nav-link text-white my-1 mt-3 mx-4 my-md-0 text-decoration-underline p-1"
+                  >Login</a
+                >
               </li>
               <li class="nav-item h5">
-                <a href="#" class="nav-link text-white my-2 mx-4">Signup</a>
+                <a
+                  href="#"
+                  class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
+                  >Signup</a
+                >
               </li>
               <li class="nav-item h5">
-                <a href="#" class="nav-link text-white my-2 mx-4">Auction</a>
+                <a
+                  href="#"
+                  class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
+                  >Auction</a
+                >
               </li>
               <li class="nav-item h5">
-                <a href="#" class="nav-link text-white my-2 mx-4">Profile</a>
+                <a
+                  href="#"
+                  class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
+                  >Profile</a
+                >
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <h1>Welcome to Bidhouse</h1>
+    </main>
     <footer class="bg-black">
       <script src="js/hamburgerToggle.mjs" type="module"></script>
-      <ul class="list-unstyled d-flex flex-column bg-black w-35">
-        <li class="nav-item fs-5">
-          <a href="#" class="nav-link text-white my-1 mx-4">Auction</a>
+      <ul class="list-unstyled d-flex flex-column bg-black w-35 py-2">
+        <li class="fs-5 my-1">
+          <a href="#" class="text-white my-1 mx-4 footer-item">Auction</a>
         </li>
-        <li class="nav-item fs-5">
-          <a href="#" class="nav-link text-white my-1 mx-4">Profile</a>
+        <li class="fs-5 my-1">
+          <a href="#" class="text-white my-1 mx-4 footer-item">Profile</a>
         </li>
-        <li class="nav-item fs-5">
-          <a href="#" class="nav-link text-white my-1 mx-4">Sell an Item</a>
+        <li class="fs-5 my-1">
+          <a href="#" class="text-white my-1 mx-4 footer-item">Sell an Item</a>
         </li>
       </ul>
     </footer>
