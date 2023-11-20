@@ -1,6 +1,7 @@
 $myColors: (
   'golden': #d0a933,
   'lime': #14ff00,
+  'searchBarColor': #e0e0e0,
 );
 $myMargins: (
   6: 80px,
@@ -28,7 +29,9 @@ h4 {
 }
 p,
 a,
-input {
+input,
+option,
+select {
   font-family: 'Poppins' !important;
 }
 input {
@@ -65,6 +68,36 @@ cta:active,
 }
 .loginBtnForm {
   border-radius: 0.375rem 0 0 0;
+}
+#search {
+  border: 2px solid;
+  border-color: black;
+  border-right: none;
+}
+.fa-magnifying-glass {
+  border: 2px solid;
+  border-color: blck;
+  border-left: none;
+  max-height: 30px;
+}
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.customButton {
+  max-width: 200px !important;
+}
+.loader {
+  width: 120px !important;
+  border: 5px solid;
+  border-color: black transparent black transparent;
+  height: 120px !important;
+  border-radius: 100%;
+  animation: spinning 1s ease-in-out infinite;
 }
 @media only screen and (min-width: 769px) {
   #bidHouseLogo {
