@@ -37,7 +37,8 @@ select {
 input {
   max-width: 200px;
 }
-.loginForm {
+.loginForm,
+.secureImg {
   max-width: 540px !important;
 }
 .nav-link:hover,
@@ -66,9 +67,6 @@ cta:active,
 .discover-section {
   max-width: 720px;
 }
-.loginBtnForm {
-  border-radius: 0.375rem 0 0 0;
-}
 #search {
   border: 2px solid;
   border-color: black;
@@ -91,6 +89,10 @@ cta:active,
 .customButton {
   max-width: 200px !important;
 }
+.secureImg {
+  border-color: black;
+  border: 2px solid;
+}
 .loader {
   width: 120px !important;
   border: 5px solid;
@@ -104,10 +106,19 @@ cta:active,
     max-height: 120px;
     min-width: 180px;
   }
+  .loginForm {
+    border-radius: 0 0.375rem 0.375rem 0;
+  }
 }
 @media only screen and (max-width: 767px) {
   #hiddenMenu {
     background-color: white;
+  }
+  .loginForm {
+    border-radius: 0.375rem;
+  }
+  .loginBtnForm {
+    border-radius: 0.375rem 0 0 0;
   }
 }
 @import '../node_modules/bootstrap/scss/_functions';
