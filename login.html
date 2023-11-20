@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -12,7 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <title>Bid House</title>
+    <title>Login BidHouse</title>
   </head>
 
   <body>
@@ -71,46 +72,54 @@
         </div>
       </nav>
     </header>
-    <main class="container">
-      <h1 class="row justify-content-center my-5 mt-6">Welcome to Bidhouse</h1>
-      <section class="row w-100">
-        <h2 class="text-center my-4">
-          Buy, sell and discover a world of auctions
-        </h2>
-      </section>
-      <section class="row">
-        <h3 class="text-center my-4">Ending soon</h3>
-        <div class="ending-soon-container"></div>
-      </section>
-      <section class="row bg-black my-5 rounded discover-section mx-auto">
-        <div class="col-12 col-md-6 d-flex justify-content-center p-0">
-          <div class="img-gavel p-0 mb-3 my-md-0">
-            <img
-              src="pictures/wooden-gavel (1).jpg"
-              alt="auction hammer"
-              class="img-fluid gavel"
-            />
-          </div>
-        </div>
-        <div class="my-5 col-12 col-md-6">
-          <h3 class="text-center align-self-center text-white my-2">
-            Discover
-          </h3>
-          <p class="text-white px-5 text-center my-2">
-            Discover more auctions in our marketplace we have a wide selection
-            of collectables and antiques
-          </p>
-          <div class="text-center my-5">
+    <main>
+      <h1 class="text-center my-5 mt-6">Login</h1>
+      <section class="bg-black text-white container px-0 py-2 my-5 loginForm">
+        <div class="d-flex mb-5">
+          <div class="p-0">
             <a
               href="#"
-              class="text-decoration-none p-2 rounded-pill bg-white text-black cta"
-              >More Auctions</a
+              class="p-2 bg-white text-decoration-none text-black fs-5 border border-dark"
+              >Login</a
+            >
+          </div>
+          <div class="p-0">
+            <a
+              href="signup.html"
+              class="p-2 bg-white text-decoration-none text-black border border-dark"
+              >Sign up</a
             >
           </div>
         </div>
+        <div class="my-5 text-center">
+          <p>Login to start biding or signup with a Free account</p>
+        </div>
+        <div>
+          <form class="d-flex flex-column align-items-center my-5">
+            <div
+              class="d-flex flex-column col-8 text-center align-items-center my-3"
+            >
+              <label for="email" class="lh-lg">Email</label>
+              <input type="text" name="email" id="email" />
+            </div>
+            <div
+              class="d-flex flex-column col-8 text-center align-items-center my-3"
+            >
+              <label for="password" class="lh-lg">Password</label>
+              <input type="text" name="password" id="password" />
+            </div>
+            <div class="text-center col-6 my-3">
+              <input
+                type="submit"
+                value="Login"
+                class="rounded w-75 bg-white"
+              />
+            </div>
+          </form>
+        </div>
       </section>
     </main>
-    <footer class="bg-black my-0 pb-3 mt-7">
+    <footer class="bg-black pb-3 mt-7">
       <script src="js/hamburgerToggle.mjs" type="module"></script>
       <ul class="list-unstyled d-flex flex-column bg-black w-35 py-2">
         <li class="fs-5 my-2">

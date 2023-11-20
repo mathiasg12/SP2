@@ -2,16 +2,44 @@ $myColors: (
   'golden': #d0a933,
   'lime': #14ff00,
 );
+$myMargins: (
+  6: 80px,
+  7: 120px,
+);
+@font-face {
+  font-family: 'Bemirs';
+  src: url(/fonts/BemirsDemoVersionRegular-L360Z.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url(/fonts/Poppins-Italic.ttf) format('truetype');
+}
 #bidHouseLogo {
   max-height: 100px;
 }
 .hamburger-menu {
   display: none !important;
 }
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Bemirs';
+}
+p,
+a,
+input {
+  font-family: 'Poppins' !important;
+}
+input {
+  max-width: 200px;
+}
+.loginForm {
+  max-width: 540px !important;
+}
 .nav-link:hover,
 .nav-link:active {
   background-color: white;
-
   border-radius: 15%;
   color: black !important;
   transition: 0.7s ease-in-out 0.5s;
@@ -19,6 +47,19 @@ $myColors: (
 .footer-item:hover,
 .footer-item:active {
   color: #7e95fc !important;
+}
+.cta:hover,
+cta:active {
+  color: white !important;
+  background-color: black !important;
+  border: white solid 2px;
+}
+.img-gavel {
+  min-width: 10px; //without this, the width of the image is set to zero due to p-0
+  max-width: 360px !important;
+}
+.discover-section {
+  max-width: 720px;
 }
 @media only screen and (min-width: 769px) {
   #bidHouseLogo {
@@ -34,4 +75,5 @@ $myColors: (
 @import '../node_modules/bootstrap/scss/_functions';
 @import '../node_modules/bootstrap/scss/_variables';
 $theme-colors: map-merge($theme-colors, $myColors);
+$spacers: map-merge($spacers, $myMargins);
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
