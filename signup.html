@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <title>Login BidHouse</title>
+    <title>Signup BidHouse</title>
   </head>
 
   <body>
@@ -73,7 +73,7 @@
       </nav>
     </header>
     <main>
-      <h1 class="text-center my-5 mt-6">Login</h1>
+      <h1 class="text-center my-5 mt-6">Sign up</h1>
       <section
         class="bg-black text-white container px-0 py-2 my-5 loginForm rounded"
       >
@@ -82,22 +82,29 @@
             <a
               href="#"
               class="p-2 bg-white text-decoration-none text-black fs-5 border border-dark loginBtnForm"
-              >Login</a
+              >Sign Up</a
             >
           </div>
           <div class="p-0">
             <a
               href="signup.html"
               class="p-2 bg-white text-decoration-none text-black border border-dark"
-              >Sign up</a
+              >Login</a
             >
           </div>
         </div>
         <div class="my-5 text-center">
-          <p>Login to start biding or signup with a Free account</p>
+          <p>Create a free account</p>
         </div>
         <div>
           <form class="d-flex flex-column align-items-center my-5">
+            <div
+              class="d-flex flex-column col-8 text-center align-items-center my-3"
+            >
+              <label for="name" class="lh-lg">Name</label>
+              <input type="text" name="name" id="name" />
+            </div>
+
             <div
               class="d-flex flex-column col-8 text-center align-items-center my-3"
             >
@@ -110,10 +117,24 @@
               <label for="password" class="lh-lg">Password</label>
               <input type="text" name="password" id="password" />
             </div>
+            <div
+              class="d-flex flex-column col-8 text-center align-items-center my-3"
+            >
+              <label for="repassword" class="lh-lg">Repeat Password</label>
+              <input type="text" name="repassword" id="repassword" />
+            </div>
+            <div
+              class="d-flex flex-column col-8 text-center align-items-center my-3"
+            >
+              <label for="avatar" class="lh-lg"
+                >Avatar picture link (optional)</label
+              >
+              <input type="text" name="avatar" id="avatar" />
+            </div>
             <div class="text-center col-6 my-3">
               <input
                 type="submit"
-                value="Login"
+                value="Sign up"
                 class="rounded w-75 bg-white submit"
               />
             </div>
