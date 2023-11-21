@@ -29,7 +29,9 @@ p,
 a,
 input,
 option,
-select {
+select,
+button,
+label {
   font-family: "Poppins" !important;
 }
 
@@ -50,6 +52,11 @@ input {
   transition: 0.7s ease-in-out 0.5s;
 }
 
+button,
+.customBtn {
+  width: 140px !important;
+}
+
 .footer-item:hover,
 .footer-item:active {
   color: #7e95fc !important;
@@ -58,25 +65,21 @@ input {
 .cta:hover,
 cta:active,
 .submit:hover,
-.submit:active {
+.submit:active,
+.logOutBtn:hover,
+.logOutBtn:active,
+.changeAvatarBtn:hover,
+.changeAvatarBtn:active {
   color: white !important;
   background-color: black !important;
   border: white solid 2px;
 }
 
-.img-gavel {
-  min-width: 10px;
-  max-width: 360px !important;
-}
-
-.discover-section {
-  max-width: 720px;
-}
-
-#search {
-  border: 2px solid;
-  border-color: black;
-  border-right: none;
+.listingCta:hover,
+.listingCta:active {
+  color: black !important;
+  background-color: white !important;
+  border: black solid 2px;
 }
 
 .fa-magnifying-glass {
@@ -98,11 +101,6 @@ cta:active,
   max-width: 200px !important;
 }
 
-.secureImg {
-  border-color: black;
-  border: 2px solid;
-}
-
 .loader {
   width: 120px !important;
   border: 5px solid;
@@ -110,6 +108,51 @@ cta:active,
   height: 120px !important;
   border-radius: 100%;
   animation: spinning 1s ease-in-out infinite;
+}
+
+/*landing page*/
+.img-gavel {
+  min-width: 10px;
+  max-width: 360px !important;
+}
+
+.discover-section {
+  max-width: 720px;
+}
+
+/*auction page*/
+#search {
+  border: 2px solid;
+  border-color: black;
+  border-right: none;
+}
+
+/*login/signup page*/
+.secureImg {
+  border-color: black;
+  border: 2px solid;
+}
+
+/*Profile page*/
+.listingForm {
+  max-width: 420px;
+}
+.listingForm input,
+.listingForm textarea {
+  border-width: 1px;
+}
+
+.profileSection {
+  max-width: 298.5px;
+}
+
+.changeAvatarBtnCon,
+.profileImg {
+  min-width: 170px !important;
+}
+.changeAvatarBtnCon button,
+.profileImg button {
+  border: white;
 }
 
 @media only screen and (min-width: 769px) {
@@ -121,6 +164,10 @@ cta:active,
     border-radius: 0 0.375rem 0.375rem 0;
   }
 }
+.profileSection {
+  max-width: 600px !important;
+}
+
 @media only screen and (max-width: 767px) {
   #hiddenMenu {
     background-color: white;
