@@ -1,5 +1,5 @@
 import { regiterUser } from './SignUpFunction.mjs';
-import { REGISTER_URL } from './variables.mjs';
+import { REGISTER_URL, LOGIN_URL } from './variables.mjs';
 import { regexCheck, isEqual, checkLength } from './validation.mjs';
 const name = document.getElementById('name');
 const nameLabel = document.getElementById('nameLabel');
@@ -32,6 +32,7 @@ sigupBtn.addEventListener('click', (click) => {
   ) {
     regiterUser(
       REGISTER_URL,
+      LOGIN_URL,
       infoText,
       name.value.trim(),
       email.value.trim(),

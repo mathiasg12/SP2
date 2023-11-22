@@ -1,4 +1,5 @@
 import { createUserObject } from './registerObject.mjs';
+import { loginUser } from './loginFunction.mjs';
 /**
  * Function that register a user to the API
  * @param {string} url
@@ -9,14 +10,22 @@ import { createUserObject } from './registerObject.mjs';
  * @example
  * registerUser("example.api/register",example,abc1234,example@noroff.no,avatar)
  */
-async function regiterUser(url, errorCon, name, email, passwword, avatar) {
+async function regiterUser(
+  url,
+  loginUrl,
+  errorCon,
+  name,
+  email,
+  password,
+  avatar,
+) {
   try {
     const sendUser = {
       method: 'post',
       headers: {
         'content-Type': 'application/json',
       },
-      body: JSON.stringify(createUserObject(name, email, passwword, avatar)),
+      body: JSON.stringify(createUserObject(name, email, password, avatar)),
     };
     let response = await fetch(url, sendUser);
     let responseJson = await response.json();
@@ -24,6 +33,7 @@ async function regiterUser(url, errorCon, name, email, passwword, avatar) {
       errorCon.innerText = 'Create a free Account';
       errorCon.classList.add('text-white');
       console.log(responseJson);
+      await loginUser(loginUrl, errorCon, email, password);
     } else {
       errorCon.innerText = responseJson.errors[0].message;
       errorCon.classList.add('text-danger');
