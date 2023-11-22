@@ -27,6 +27,7 @@ async function regiterUser(url, errorCon, name, email, passwword, avatar) {
     } else {
       errorCon.innerText = responseJson.errors[0].message;
       errorCon.classList.add('text-danger');
+      errorCon.scrollIntoView({ behavior: 'smooth' });
     }
   } catch (error) {
     console.log(error);
