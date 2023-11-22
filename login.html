@@ -94,33 +94,37 @@
               <div class="p-0">
                 <a
                   href="#"
-                  class="p-2 bg-white text-decoration-none text-black fs-5 border border-dark loginBtnForm"
+                  class="p-2 bg-white text-decoration-none text-black fs-5 border border-dark loginBtnForm formBtn"
                   >Login</a
                 >
               </div>
               <div class="p-0">
                 <a
                   href="signup.html"
-                  class="p-2 bg-white text-decoration-none text-black border border-dark"
+                  class="p-2 bg-white text-decoration-none text-black border border-dark formBtn"
                   >Sign up</a
                 >
               </div>
             </div>
             <div class="my-5 text-center">
-              <p>Login to start biding or signup with a Free account</p>
+              <p class="infoText">
+                Login to start biding or signup with a Free account
+              </p>
             </div>
             <div>
               <form class="d-flex flex-column align-items-center my-5">
                 <div
                   class="d-flex flex-column col-8 text-center align-items-center my-3"
                 >
-                  <label for="email" class="lh-lg">Email</label>
+                  <label for="email" class="lh-lg" id="emailLabel">Email</label>
                   <input type="text" name="email" id="email" />
                 </div>
                 <div
                   class="d-flex flex-column col-8 text-center align-items-center my-3"
                 >
-                  <label for="password" class="lh-lg">Password</label>
+                  <label for="password" class="lh-lg" id="passwordLabel"
+                    >Password</label
+                  >
                   <input type="text" name="password" id="password" />
                 </div>
                 <div class="text-center col-6 my-3">
@@ -128,6 +132,7 @@
                     type="submit"
                     value="Login"
                     class="rounded w-75 bg-white submit"
+                    id="loginBtn"
                   />
                 </div>
               </form>
@@ -138,6 +143,7 @@
     </main>
     <footer class="bg-black pb-3 mt-7">
       <script src="js/hamburgerToggle.mjs" type="module"></script>
+      <script src="js/login.mjs" type="module"></script>
       <ul class="list-unstyled d-flex flex-column bg-black w-35 py-2">
         <li class="fs-5 my-2">
           <a href="auctions.html" class="text-white mx-4 footer-item"

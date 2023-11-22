@@ -94,60 +94,65 @@
               <div class="p-0">
                 <a
                   href="#"
-                  class="p-2 bg-white text-decoration-none text-black fs-5 border border-dark loginBtnForm"
+                  class="p-2 bg-white text-decoration-none text-black fs-5 border border-dark loginBtnForm formBtn"
                   >Sign up</a
                 >
               </div>
               <div class="p-0">
                 <a
                   href="login.html"
-                  class="p-2 bg-white text-decoration-none text-black border border-dark"
+                  class="p-2 bg-white text-decoration-none text-black border border-dark formBtn"
                   >Login</a
                 >
               </div>
             </div>
             <div class="my-5 text-center">
-              <p>Create a free Account</p>
+              <p class="infoText">Create a free Account</p>
             </div>
             <div>
               <form class="d-flex flex-column align-items-center my-5">
                 <div
                   class="d-flex flex-column col-8 text-center align-items-center my-3"
                 >
-                  <label for="name" class="lh-lg">Name</label>
-                  <input type="text" name="name" id="name" />
+                  <label for="name" class="lh-lg" id="nameLabel">Name</label>
+                  <input type=" text" name="name" id="name" />
                 </div>
                 <div
                   class="d-flex flex-column col-8 text-center align-items-center my-3"
                 >
-                  <label for="email" class="lh-lg">Email</label>
+                  <label for="email" class="lh-lg" id="emailLabel">Email</label>
                   <input type="text" name="email" id="email" />
                 </div>
                 <div
                   class="d-flex flex-column col-8 text-center align-items-center my-3"
                 >
-                  <label for="password" class="lh-lg">Password</label>
-                  <input type="text" name="password" id="password" />
+                  <label for="password" class="lh-lg" id="passwordLabel"
+                    >Password</label
+                  >
+                  <input type=" text" name="password" id="password" />
                 </div>
                 <div
                   class="d-flex flex-column col-8 text-center align-items-center my-3"
                 >
-                  <label for="repassword" class="lh-lg">Repeat Password</label>
-                  <input type="text" name="repassword" id="repassword" />
+                  <label for="repassword" class="lh-lg" id="repeatPasswordLabel"
+                    >Repeat Password</label
+                  >
+                  <input type=" text" name="repassword" id="repassword" />
                 </div>
                 <div
                   class="d-flex flex-column col-8 text-center align-items-center my-3"
                 >
-                  <label for="avatar" class="lh-lg"
+                  <label for="avatar" class="lh-lg" id="avatarLabel"
                     >Avatar picture link (optional)</label
                   >
-                  <input type="text" name="avatar" id="avatar" />
+                  <input type=" text" name="avatar" id="avatar" />
                 </div>
                 <div class="text-center col-6 my-3">
                   <input
                     type="submit"
                     value="Sign up"
                     class="rounded w-75 bg-white submit"
+                    id="submit"
                   />
                 </div>
               </form>
@@ -158,6 +163,7 @@
     </main>
     <footer class="bg-black pb-3 mt-7">
       <script src="js/hamburgerToggle.mjs" type="module"></script>
+      <script src="js/Signup.mjs" type="module"></script>
       <ul class="list-unstyled d-flex flex-column bg-black w-35 py-2">
         <li class="fs-5 my-2">
           <a href="auctions.html" class="text-white mx-4 footer-item"
