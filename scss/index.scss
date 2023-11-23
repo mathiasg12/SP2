@@ -50,6 +50,9 @@ input {
   color: black !important;
   transition: 0.7s ease-in-out 0.5s;
 }
+#logOutHeader {
+  cursor: pointer;
+}
 button,
 .customBtn {
   width: 140px !important;

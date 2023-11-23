@@ -14,7 +14,8 @@ async function loginUser(url, errorCon, email, password) {
       errorCon.classList.add('text-white');
       console.log(responseJson);
       if (responseJson.accessToken != undefined) {
-        localStorage.setItem('Token', responseJson.accessToken);
+        localStorage.setItem('BidHouseToken', responseJson.accessToken);
+        localStorage.setItem('name', responseJson.name);
         location.replace('profile.html');
       }
     } else {

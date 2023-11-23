@@ -13,7 +13,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <script src="js/changeHeader.mjs" type="module"></script>
     <title>Profile</title>
   </head>
 
@@ -27,13 +26,16 @@
               alt="bidhouse logo"
               id="bidHouseLogo"
           /></a>
-          <i
-            class="fa-solid fa-bars text-white my-1 mx-3 h4 d-md-none"
-            id="haburgerMenuIcon"
-          ></i>
+          <div class="d-flex d-md-none">
+            <p class="text-white mx-3 my-1 py-0 d-none" id="credit">Credit:</p>
+            <i
+              class="fa-solid fa-bars text-white my-1 mx-3 h4 d-md-none"
+              id="haburgerMenuIcon"
+            ></i>
+          </div>
         </div>
         <div
-          class="hamburger-menu d-md-flex w-100 justify-content-md-center"
+          class="hamburger-menu d-md-flex justify-content-md-center"
           id="hiddenMenu"
         >
           <div class="d-flex justify-content-end justify-content-md-center">
@@ -44,6 +46,7 @@
                 <a
                   href="login.html"
                   class="nav-link text-white my-1 mt-3 mx-4 my-md-0 text-decoration-underline p-1"
+                  id="login"
                   >Login</a
                 >
               </li>
@@ -51,6 +54,7 @@
                 <a
                   href="signup.html"
                   class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
+                  id="signUpHeader"
                   >Signup</a
                 >
               </li>
@@ -67,6 +71,22 @@
                   class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
                   >Profile</a
                 >
+              </li>
+              <li class="nav-item h5">
+                <p
+                  class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1 d-none"
+                  id="logOutHeader"
+                >
+                  LogOut
+                </p>
+              </li>
+              <li class="nav-item h5 d-none d-md-block">
+                <p
+                  class="text-white my-1 mx-4 my-md-0 p-1 d-none"
+                  id="creditLi"
+                >
+                  Credit:
+                </p>
               </li>
             </ul>
           </div>
@@ -175,7 +195,8 @@
       </section>
     </main>
     <footer class="bg-black pb-3 mt-7">
-      <script src="js/hamburgerToggle.mjs" type="module"></script>
+      <script src="js/index.mjs" type="module"></script>
+      <script src="js/profile.mjs" type="module"></script>
       <ul class="list-unstyled d-flex flex-column bg-black w-35 py-2">
         <li class="fs-5 my-2">
           <a href="auctions.html" class="text-white mx-4 footer-item"
