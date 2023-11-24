@@ -1,7 +1,8 @@
 import { createUserObject } from './registerObject.mjs';
 import { loginUser } from './loginFunction.mjs';
 /**
- * Function that register a user to the API
+ * Function that register a user to the API if the signup is successful the login fuction will run and the user automatically logs in, if the request is denied the user
+ * will recive an error message
  * @param {string} url
  * @param {string} name
  * @param {string} email

@@ -10,9 +10,12 @@ const passwordLabel = document.getElementById('passwordLabel');
 const repeatPassword = document.getElementById('repassword');
 const repeatPasswordLabel = document.getElementById('repeatPasswordLabel');
 const avatarLink = document.getElementById('avatar');
-const avatarLinkLabel = document.getElementById('avatarLabel');
 const sigupBtn = document.getElementById('submit');
 const infoText = document.querySelector('.infoText');
+/**
+ * eventlistener that runs when signup is pressed, it then checks all inputs with the validation functions and if they pass it will run the signup function, if not the user will
+ * get an error message at the appropriate place
+ */
 sigupBtn.addEventListener('click', (click) => {
   click.preventDefault();
   regexCheck(email, 'Email', emailLabel, '@stud.noroff.no');

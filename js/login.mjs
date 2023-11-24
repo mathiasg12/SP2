@@ -7,6 +7,9 @@ const password = document.getElementById('password');
 const passwordLabel = document.getElementById('passwordLabel');
 const loginBtn = document.getElementById('loginBtn');
 const errorCon = document.querySelector('.infoText');
+/**
+ * evenntlistener that runs when login button is pressed it then uses validation functions to see if all input fields passes it then runs the login funnction
+ */
 loginBtn.addEventListener('click', (click) => {
   click.preventDefault();
   regexCheck(email, 'Email', emailLabel, '@stud.noroff.no');
