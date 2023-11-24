@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <header class="bg-black header w-100">
+    <header class="bg-black header w-100 top-0">
       <nav class="d-md-flex flex-md-column">
         <div class="d-flex align-items-end justify-content-between">
           <a href="index.html" class="navbar-brand m-1"
@@ -34,74 +34,71 @@
           </div>
         </div>
         <div
-          class="hamburger-menu d-md-flex justify-content-md-center"
+          class="hamburger-menu d-md-flex justify-content-md-center mx-md-3"
           id="hiddenMenu"
         >
-          <div class="d-flex justify-content-end justify-content-md-center">
-            <ul
-              class="list-unstyled d-flex flex-column flex-md-row align-items-end bg-black w-35 my-md-1"
-            >
-              <li class="nav-item h5">
-                <a
-                  href="login.html"
-                  class="nav-link text-white my-1 mt-3 mx-4 my-md-0 text-decoration-underline p-1"
-                  id="login"
-                  >Login</a
-                >
-              </li>
-              <li class="nav-item h5">
-                <a
-                  href="signup.html"
-                  class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
-                  id="signUpHeader"
-                  >Signup</a
-                >
-              </li>
-              <li class="nav-item h5">
-                <a
-                  href="auctions.html"
-                  class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
-                  >Auction</a
-                >
-              </li>
-              <li class="nav-item h5">
-                <a
-                  href="profile.html"
-                  class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
-                  >Profile</a
-                >
-              </li>
-              <li class="nav-item h5">
-                <p
-                  class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1 d-none"
-                  id="logOutHeader"
-                >
-                  LogOut
-                </p>
-              </li>
-              <li class="nav-item h5 d-none d-md-inline">
-                <p
-                  class="text-white my-1 mx-4 my-md-0 p-1 d-none"
-                  id="creditLi"
-                >
-                  Credit:
-                </p>
-              </li>
-            </ul>
-          </div>
+          <ul
+            class="list-unstyled d-flex flex-column flex-md-row align-items-end bg-black w-35 my-md-1"
+          >
+            <li class="nav-item h5">
+              <a
+                href="login.html"
+                class="nav-link text-white my-1 mt-3 mx-4 my-md-0 text-decoration-underline p-1"
+                id="login"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item h5">
+              <a
+                href="signup.html"
+                class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
+                id="signUpHeader"
+                >Signup</a
+              >
+            </li>
+            <li class="nav-item h5">
+              <a
+                href="auctions.html"
+                class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
+                >Auction</a
+              >
+            </li>
+            <li class="nav-item h5">
+              <a
+                href="profile.html"
+                class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
+                >Profile</a
+              >
+            </li>
+            <li class="nav-item h5">
+              <p
+                class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1 d-none"
+                id="logOutHeader"
+              >
+                LogOut
+              </p>
+            </li>
+            <li class="nav-item h5 d-none d-md-inline">
+              <p class="text-white my-1 mx-4 my-md-0 p-1 d-none" id="creditLi">
+                Credit:
+              </p>
+            </li>
+          </ul>
         </div>
       </nav>
     </header>
-    <main class="container">
-      <h1 class="row justify-content-center my-5 mt-6">Welcome to Bidhouse</h1>
-      <section class="row w-100">
-        <h2 class="text-center my-4">
+    <main class="container my-8">
+      <h1 class="row justify-content-center mb-5">Welcome to Bidhouse</h1>
+      <section class="row">
+        <h2 class="text-center my-2">
           Buy, sell and discover a world of auctions
         </h2>
       </section>
-      <section class="row">
-        <h3 class="text-center my-4">recently added</h3>
-        <div class="recently-container"></div>
+      <section class="row mt-5">
+        <h3 class="text-center mt-5">recently added</h3>
+        <div
+          class="recently-container d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center"
+        ></div>
       </section>
       <section class="row bg-black my-5 rounded discover-section mx-auto">
         <div class="col-12 col-md-6 d-flex justify-content-center p-0">
@@ -131,7 +128,7 @@
         </div>
       </section>
     </main>
-    <footer class="bg-black my-0 pb-3 mt-7">
+    <footer class="bg-black my-0 pb-3 mt-7 bottom-0">
       <script src="js/index.mjs" type="module"></script>
       <script src="js/ladingPage.mjs" type="module"></script>
       <ul class="list-unstyled d-flex flex-column bg-black w-35 py-2">
