@@ -1,5 +1,6 @@
 $myColors: (
   'golden': #d0a933,
+  'lightGolden': #fceb72,
   'lime': #14ff00,
   'searchBarColor': #e0e0e0,
 );
@@ -18,7 +19,9 @@ body {
     min-height: 90vh;
   }
 }
-
+.insideBorders {
+  border-top: solid white 1px;
+}
 @font-face {
   font-family: 'Bemirs';
   src: url(/fonts/BemirsDemoVersionRegular-L360Z.ttf) format('truetype');
@@ -50,6 +53,15 @@ label {
 }
 input {
   max-width: 200px;
+}
+.auctionCard {
+  width: 250px;
+  img {
+    height: 210px;
+  }
+  &:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 1);
+  }
 }
 
 .nav-link:hover,
@@ -179,6 +191,11 @@ cta:active,
   }
   .loginBtnForm {
     border-radius: 0.375rem 0 0 0;
+  }
+}
+@media only screen and (max-width: 250px) {
+  .auctionCard {
+    width: fit-content;
   }
 }
 @import '../node_modules/bootstrap/scss/_functions';
