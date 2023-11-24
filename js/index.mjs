@@ -1,6 +1,6 @@
+//Index.mjs contain functions that is used on all pages
 import { logOut } from './Logout.mjs';
 import { getCredit } from './getProfile.mjs';
-//Index.mjs contain functions that is used on all pages
 const haburgerMenuIcon = document.getElementById('haburgerMenuIcon');
 const hiddenMenu = document.getElementById('hiddenMenu');
 const credit = document.getElementById('credit');
@@ -8,6 +8,7 @@ const logOutHeader = document.getElementById('logOutHeader');
 const login = document.getElementById('login');
 const signUpHeader = document.getElementById('signUpHeader');
 const creditLi = document.getElementById('creditLi');
+const nav = document.querySelector('nav');
 /**
  * simple addeventlitener that toggles between a class called "hamburger-menu" which toggles display between "block" and "none"
  */
@@ -62,4 +63,16 @@ window.addEventListener('DOMContentLoaded', () => {
  */
 logOutHeader.addEventListener('click', () => {
   logOut();
+});
+/**
+ * eventlistener that runs when the user scrolls down it then makes the header smaller for desktop
+ */
+window.addEventListener('scroll', () => {
+  if (window.scrollY >= 150) {
+    nav.classList.remove('flex-md-column');
+    nav.classList.add('justify-content-between');
+  } else {
+    nav.classList.add('flex-md-column');
+    nav.classList.remove('justify-content-between');
+  }
 });
