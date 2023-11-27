@@ -169,6 +169,11 @@ cta:active,
   border-width: 1px;
 }
 
+/*specific page*/
+.imgSpecific {
+  max-width: 300px;
+}
+
 .profileSection {
   max-width: 298.5px;
 }
