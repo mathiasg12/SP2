@@ -56,6 +56,7 @@ input {
 }
 .auctionCard {
   width: 250px;
+  min-height: 520px !important;
   img {
     height: 210px;
   }
@@ -63,7 +64,10 @@ input {
     box-shadow: 0 0 25px rgba(0, 0, 0, 1);
   }
 }
-
+.ctaCustomHeight {
+  height: 44px;
+  width: 140px;
+}
 .nav-link:hover,
 .nav-link:active {
   background-color: white;
@@ -155,10 +159,6 @@ cta:active,
     border-width: 1px;
   }
 }
-/*specific page*/
-.imgSpecific {
-  max-width: 300px;
-}
 .profileSection {
   max-width: 298.5px;
 }
@@ -168,6 +168,13 @@ cta:active,
   button {
     border: white;
   }
+}
+/*specific page*/
+.imgSpecific {
+  max-width: 300px;
+}
+.specificP {
+  overflow-wrap: break-word;
 }
 
 @media only screen and (min-width: 769px) {

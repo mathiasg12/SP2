@@ -6,7 +6,7 @@ import { getLeadingBid } from './findLeadingBid.mjs';
  * @param {string} section
  */
 function createHTMLFromObject(object, section) {
-  let { created, description, endsAt, media, title, bids, id } = object;
+  let { description, endsAt, media, title, bids, id } = object;
   let highestBid = document.createElement('p');
   let divBid = document.createElement('div');
   let divEnd = document.createElement('div');

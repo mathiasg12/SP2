@@ -1,8 +1,16 @@
 import { improvedTimeFormat } from './timeFormat.mjs';
 import { getLeadingBid } from './findLeadingBid.mjs';
+import { getbidHistory } from './getBidHistory.mjs';
+import { createBidForm } from './bidForm.mjs';
+import { orderedBids } from './sortHighestBid.mjs';
+/**
+ * funnction that uses an object to make HTML and appends it to a section on the page, this function is created for the specific page
+ * @param {object} object
+ * @param {string} section
+ */
 function createHTMLSpecific(object, section) {
   let { description, endsAt, media, title, bids } = object;
-  let specificCon = document.createElement('div');
+  let newBidsArray = orderedBids(bids);
   let divEndAndBids = document.createElement('div');
   let h1 = document.createElement('h1');
   let desc = document.createElement('p');
@@ -10,11 +18,24 @@ function createHTMLSpecific(object, section) {
   let newEndsAt = improvedTimeFormat(endsAt);
   let bidHistoryCon = document.createElement('div');
   let bidHistory = document.createElement('p');
+  let bidHistoryContent = document.createElement('div');
   let imgCon = document.createElement('div');
   let img = document.createElement('img');
   let currentBid = document.createElement('p');
   let totalBid = document.createElement('p');
   let bidCta = document.createElement('button');
+  let bidHistoryContentName = document.createElement('p');
+  let bidHistoryContentBid = document.createElement('p');
+  let bidHistoryContentDate = document.createElement('p');
+  let ctaCon = document.createElement('div');
+  bidHistoryContentName.innerText = 'Name';
+  bidHistoryContentBid.innerText = 'Bid';
+  bidHistoryContentDate.innerText = 'Date';
+  bidHistoryContent.append(
+    bidHistoryContentName,
+    bidHistoryContentBid,
+    bidHistoryContentDate,
+  );
   img.src = media;
   bidHistory.innerText = 'Bid History';
   currentBid.innerText = getLeadingBid(bids);
@@ -22,30 +43,41 @@ function createHTMLSpecific(object, section) {
   bidCta.innerText = 'Bid now';
   desc.innerText = description;
   endDate.innerText = `Ends at: ${newEndsAt}`;
-  divEndAndBids.append(currentBid);
-  divEndAndBids.append(totalBid);
-  divEndAndBids.append(endDate);
-  bidHistoryCon.append(bidHistory);
+  ctaCon.append(bidCta);
+  divEndAndBids.append(currentBid, totalBid, endDate);
+  bidHistoryCon.append(bidHistory, bidHistoryContent);
+  getbidHistory(newBidsArray, bidHistoryCon);
   totalBid.innerText = `Total bids: ${bids.length}`;
-  desc.classList.add('text-white');
-  section.classList.add('text-white');
   imgCon.append(img);
+  section.append(h1, imgCon, desc, divEndAndBids, ctaCon, bidHistoryCon);
+  bidCta.id = 'placeBid';
+  section.classList.add('text-white');
+  h1.classList.add('my-5', 'text-center');
+  bidHistoryCon.classList.add('container');
+  bidHistory.classList.add('text-center', 'fs-4', 'mt-5');
+  bidHistoryContent.classList.add(
+    'row',
+    'mx-auto',
+    'text-center',
+    'fs-5',
+    'my-2',
+  );
+  bidHistoryContentName.classList.add('col-4');
+  bidHistoryContentBid.classList.add('col-4');
+  bidHistoryContentDate.classList.add('col-4');
+  totalBid.classList.add('mb-2');
+  currentBid.classList.add('mb-2', 'fs-5');
+  desc.classList.add('p-1', 'text-center', 'my-4', 'text-white');
+  endDate.classList.add('text-golden');
   img.classList.add('img-fluid');
   imgCon.classList.add('imgSpecific');
-  h1.classList.add('my-3');
-  endDate.classList.add('text-golden');
-  endDate.classList.add('text-center');
-  desc.classList.add('p-1');
-  desc.classList.add('text-center');
-  divEndAndBids.classList.add('w-100');
-  section.classList.add('bg-black');
-  specificCon.append(h1);
-  specificCon.append(imgCon);
-  specificCon.append(desc);
-  specificCon.append(divEndAndBids);
-  specificCon.append(bidCta);
-  specificCon.append(bidHistoryCon);
-
-  section.append(specificCon);
+  divEndAndBids.classList.add('my-4');
+  bidCta.classList.add('rounded-pill', 'ctaCustomHeight', 'my-4');
+  window.addEventListener('click', (click) => {
+    if (click.target.id == 'placeBid') {
+      createBidForm(ctaCon);
+      click.target.classList.add('d-none');
+    }
+  });
 }
 export { createHTMLSpecific };

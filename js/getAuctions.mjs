@@ -10,8 +10,6 @@ async function getAuctions(url) {
     };
     const response = await fetch(url, method);
     const responseJson = await response.json();
-
-    console.log(responseJson);
     return responseJson;
   } catch (error) {
     console.log(error);

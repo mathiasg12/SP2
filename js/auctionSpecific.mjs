@@ -8,3 +8,4 @@ let urlWithId = AUCTION_URL + '/' + idParameter + '?_active=true&_bids=true';
 let auctionObject = await getAuctions(urlWithId);
 const specificCon = document.getElementById('specificCon');
 createHTMLSpecific(auctionObject, specificCon);
+export { auctionObject, idParameter };
