@@ -68,7 +68,7 @@ logOutHeader.addEventListener('click', () => {
  * eventlistener that runs when the user scrolls down it then makes the header smaller for desktop
  */
 window.addEventListener('scroll', () => {
-  if (window.scrollY >= 150) {
+  if (window.scrollY >= 80) {
     nav.classList.remove('flex-md-column');
     nav.classList.add('justify-content-between');
   } else {

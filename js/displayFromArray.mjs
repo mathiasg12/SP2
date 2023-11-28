@@ -8,6 +8,7 @@ import { getAuctions } from './getAuctions.mjs';
  */
 async function displayFromArray(url, HtmlFunction, section) {
   let arrayOfAuction = await getAuctions(url, section);
+  document.querySelector('.loader').classList.add('d-none');
   arrayOfAuction.forEach((auctions) => {
     HtmlFunction(auctions, section);
   });

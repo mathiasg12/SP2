@@ -44,14 +44,13 @@ function createHTMLSpecific(object, section) {
   desc.innerText = description;
   endDate.innerText = `Ends at: ${newEndsAt}`;
   ctaCon.append(bidCta);
-  divEndAndBids.append(currentBid, totalBid, endDate);
+  divEndAndBids.append(desc, currentBid, totalBid, endDate);
   bidHistoryCon.append(bidHistory, bidHistoryContent);
   getbidHistory(newBidsArray, bidHistoryCon);
   totalBid.innerText = `Total bids: ${bids.length}`;
   imgCon.append(img);
-  section.append(h1, imgCon, desc, divEndAndBids, ctaCon, bidHistoryCon);
+  section.append(h1, imgCon, divEndAndBids, ctaCon, bidHistoryCon);
   bidCta.id = 'placeBid';
-  section.classList.add('text-white');
   h1.classList.add('my-5', 'text-center');
   bidHistoryCon.classList.add('container');
   bidHistory.classList.add('text-center', 'fs-4', 'mt-5');
@@ -65,14 +64,25 @@ function createHTMLSpecific(object, section) {
   bidHistoryContentName.classList.add('col-4');
   bidHistoryContentBid.classList.add('col-4');
   bidHistoryContentDate.classList.add('col-4');
-  totalBid.classList.add('mb-2');
-  currentBid.classList.add('mb-2', 'fs-5');
-  desc.classList.add('p-1', 'text-center', 'my-4', 'text-white');
-  endDate.classList.add('text-golden');
+  totalBid.classList.add('mb-2', 'customSpacingRules');
+  currentBid.classList.add('mb-2', 'fs-5', 'customSpacingRules');
+  ctaCon.classList.add('text-center', 'my-4');
+  desc.classList.add('my-0', 'mb-4', 'text-white');
+  endDate.classList.add('text-golden', 'customSpacingRules');
   img.classList.add('img-fluid');
-  imgCon.classList.add('imgSpecific');
-  divEndAndBids.classList.add('my-4');
-  bidCta.classList.add('rounded-pill', 'ctaCustomHeight', 'my-4');
+  imgCon.classList.add('imgSpecific', 'mx-auto', 'mx-md-1', 'col-md-6');
+  divEndAndBids.classList.add(
+    'my-4',
+    'col-md-6',
+    'mx-auto',
+    'mx-md-1',
+    'my-md-0',
+    'customSpacingRules',
+  );
+  bidCta.classList.add('rounded-pill', 'ctaCustomHeight', 'my-4', 'my-sm-5');
+  /**
+   * event listener that runs when a a user clicks on a item with the id of placeBid it will then make a bid form
+   */
   window.addEventListener('click', (click) => {
     if (click.target.id == 'placeBid') {
       createBidForm(ctaCon);
