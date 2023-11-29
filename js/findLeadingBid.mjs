@@ -1,13 +1,15 @@
+import { orderedBids } from './sortHighestBid.mjs';
 /**
  * function that takes the last object in an arrray (leading bid) and rturns that object
  * @param {array} bids
  * @returns {object}
  */
 function getLeadingBid(bids) {
-  let bidsLength = bids.length;
-  let bidsIndexNr = bidsLength - 1;
+  let newList = orderedBids(bids);
+  let bidsLength = newList.length;
+  let bidsIndexNr = 0;
   if (bidsLength >= 1) {
-    return `Leading bid: ${bids[bidsIndexNr].amount} Credits`;
+    return `Leading bid: ${bids[bidsIndexNr].amount} Credit`;
   } else {
     return 'No bids yet';
   }

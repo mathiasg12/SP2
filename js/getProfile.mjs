@@ -1,6 +1,7 @@
 import { PROFILE_URL } from './variables.mjs';
 /**
- * fuction that gets a profile based on what is store in local storage, and then gets the credit to that user
+ * fuction that gets a profile based on what is store in local storage, and then gets the credit to that user, the function takes two parameters,
+ *  that is used for displaying the credit in the header if the function is called without the paramteres the credit value is returned.
  * @param {string} display1
  * @param {string} display2
  */
@@ -19,8 +20,12 @@ async function getCredit(display1, display2) {
     );
     const responseJson = await response.json();
     const credit = await responseJson.credits;
-    display1.innerText += ' ' + credit;
-    display2.innerText += ' ' + credit;
+    if (display1 && display2 != undefined) {
+      display1.innerText += ' ' + credit;
+      display2.innerText += ' ' + credit;
+    } else {
+      return await credit;
+    }
   } catch (error) {
     console.log(error);
   }
