@@ -16,8 +16,8 @@ async function handleClickBid(click) {
     let bidValue = bidInput.value;
     let bidValueNumber = +bidValue;
     let newBidArray = orderedBids(auctionObject.bids);
-    let highestBid = newBidArray[0];
-    let highestBidValue = highestBid.amount;
+    let highestBid = newBidArray[0] ?? 0;
+    let highestBidValue = highestBid.amount ?? 0;
     let bidInfo = document.getElementById('bidInfo');
     const credit = await getCredit();
     if (bidValueNumber <= highestBidValue) {

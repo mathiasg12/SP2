@@ -1,5 +1,6 @@
 import { improvedTimeFormat } from './timeFormat.mjs';
 import { getLeadingBid } from './findLeadingBid.mjs';
+
 /**
  * funnction that uses an object to make HTML and appends it to a section on the page
  * @param {object} object
@@ -46,6 +47,7 @@ function createHTMLFromObject(object, section) {
     'rounded',
     'text-decoration-none',
     'text-white',
+    'text-center',
   );
   h3.classList.add('my-3');
   endDate.classList.add('text-golden', 'text-center', 'p-1', 'mt-2', 'mb-2');

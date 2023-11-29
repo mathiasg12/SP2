@@ -12,13 +12,16 @@ function createBidForm(section) {
     let bidLabel = document.createElement('label');
     let bidInfo = document.createElement('p');
     let bidCta = document.createElement('input');
-    let newBidArray = orderedBids(auctionObject.bids);
-    if (localStorage.getItem('name') == newBidArray[0].bidderName) {
-      bidInfo.classList.add('text-lime');
-      bidInfo.innerText = 'You are currently leading this bid round!';
-    } else {
-      bidInfo.innerText = 'Place a bid (min 1 above current price)';
+    if (auctionObject.bids.length >= 1) {
+      let newBidArray = orderedBids(auctionObject.bids);
+      if (localStorage.getItem('name') == newBidArray[0].bidderName) {
+        bidInfo.classList.add('text-lime');
+        bidInfo.innerText = 'You are currently leading this bid round!';
+      } else {
+        bidInfo.innerText = 'Place a bid (min 1 above current price)';
+      }
     }
+    bidInfo.innerText = 'Place a bid (min 1 above current price)';
     bidinput.type = 'number';
     bidinput.name = 'bid';
     bidLabel.innerText = 'place bid';
