@@ -89,6 +89,9 @@ button,
 .footer-item:active {
   color: #7e95fc !important;
 }
+.unClickAble {
+  pointer-events: none;
+}
 .cta:hover,
 cta:active,
 .submit:hover,

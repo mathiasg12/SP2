@@ -1,17 +1,21 @@
 import { displayFromArray } from './displayFromArray.mjs';
 import { createHTMLFromObject } from './auctionCard.mjs';
 import { AUCTION_URL } from './variables.mjs';
-import { searchForAuction } from './searchFunctionality.mjs';
-import { getAllAuctions } from './getAuctions.mjs';
+import { handleSearchClick } from './handleSearch.mjs';
 const searchKey = document.getElementById('searchKey');
 const searchInput = document.getElementById('searchBar');
 const con = document.querySelector('.cardCon');
 const moreBtn = document.getElementById('moreBtn');
 const loader = document.querySelector('.loader');
+const sort = document.getElementById('sort');
 let parameters = `?_active=true&_bids=true&limit=${20}&&offset=${0}`;
+let parametersAcending = `?_active=true&_bids=true&limit=${20}&&offset=${0}&&sortOrder=asc`;
 let page = 0;
 let searched = false;
 displayFromArray(AUCTION_URL + parameters, createHTMLFromObject, con);
+/**
+ * event listener which reads enter as a click event
+ */
 searchInput.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     searchKey.click();
@@ -21,49 +25,49 @@ searchInput.addEventListener('keypress', (event) => {
  * eventlistener that runs if the more button is clicked, it then fetches and displays the next 20 auctions in the api
  */
 moreBtn.addEventListener('click', () => {
+  loader.classList.remove('d-none');
   page++;
   let limit = 20;
   let offSet = page * limit;
-  let newParameters = `?_active=true&_bids=true&limit=${limit}&&offset=${offSet}`;
-  displayFromArray(AUCTION_URL + newParameters, createHTMLFromObject, con);
+  if (sort.value === 'oldest') {
+    let newParametersAsc = `?_active=true&_bids=true&limit=${limit}&&offset=${offSet}&sortOrder=asc`;
+    displayFromArray(AUCTION_URL + newParametersAsc, createHTMLFromObject, con);
+  } else {
+    let newParameters = `?_active=true&_bids=true&limit=${limit}&&offset=${offSet}`;
+    displayFromArray(AUCTION_URL + newParameters, createHTMLFromObject, con);
+  }
 });
 /**
- * eventlistener that runs if the search symbol is pressed it then uses getAllAuctions to create an array with all Auctions and then uses the searchForAuction to search for matches
- * between the search input and the title or the descriptions of an auction, if no matches is found the user recives a message if there are matches they are displayed on the page,
+ * event listener that runs when the search icon is clicked, it then runs the handleSearch function and sets the global variable searched as true
  */
-searchKey.addEventListener('click', async () => {
-  con.innerHTML = '';
-  searchInput.disabled = true;
-  searchKey.disabled = true;
-  if (searchInput.value.toLowerCase().trim().length < 1) {
-    location.reload();
-  } else {
-    searched = true;
-    loader.classList.remove('d-none');
-    page = 0;
-    let allAuctions = await getAllAuctions(AUCTION_URL);
-    let arraySearchedAuctions = searchForAuction(allAuctions, searchInput);
-    let p = document.createElement('p');
-    p.classList.add('text-center', 'w-100');
-    con.append(p);
-    if (arraySearchedAuctions.length < 1) {
-      p.innerText = `Sorry no mathces were found on your search for: ${searchInput.value
-        .toLowerCase()
-        .trim()}`;
-      loader.classList.add('d-none');
-      searchInput.disabled = false;
-      searchKey.disabled = false;
+searchKey.addEventListener('click', () => {
+  handleSearchClick(con, loader, searchInput, searchKey, moreBtn, AUCTION_URL);
+  searched = true;
+});
+/**
+ * event listener that runs when select value changes and displays the results in acsending order if the value is "oldest" and reload the page if the value is "newest",
+ * the function behaves differetly if sorting search results and will then reverse the search array if the value is "oldest"
+ */
+sort.addEventListener('change', () => {
+  if (searched === false) {
+    if (sort.value === 'oldest') {
+      con.innerHTML = '';
+      displayFromArray(
+        AUCTION_URL + parametersAcending,
+        createHTMLFromObject,
+        con,
+      );
     } else {
-      arraySearchedAuctions.forEach((auctions) => {
-        p.innerText = `${
-          arraySearchedAuctions.length
-        } matches for your search: ${searchInput.value.toLowerCase().trim()}`;
-        createHTMLFromObject(auctions, con);
-        loader.classList.add('d-none');
-        moreBtn.disabled = 'true';
-        searchInput.disabled = false;
-        searchKey.disabled = false;
-      });
+      location.reload();
     }
+  } else {
+    handleSearchClick(
+      con,
+      loader,
+      searchInput,
+      searchKey,
+      moreBtn,
+      AUCTION_URL,
+    );
   }
 });

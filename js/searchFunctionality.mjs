@@ -1,3 +1,9 @@
+/**
+ * function that searches thru an array and returns a new array with objects that includes the search value eighter in the title or in the descriptions
+ * @param {array} array
+ * @param {sring} searchInput
+ * @returns
+ */
 function searchForAuction(array, searchInput) {
   let searchValue = searchInput.value.toLowerCase().trim();
   let searchedArray = array.filter((search) => {
