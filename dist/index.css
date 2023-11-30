@@ -109,7 +109,9 @@ cta:active,
 .changeAvatarBtn:hover,
 .changeAvatarBtn:active,
 .formBtn:hover,
-.formBtn:active {
+.formBtn:active,
+.avatarBtn:hover,
+.avatarBtn:active {
   color: white !important;
   background-color: black !important;
   border: white solid 2px;
@@ -183,13 +185,15 @@ cta:active,
   border-width: 1px;
 }
 
-.profileSection {
-  max-width: 298.5px;
-}
-
 .changeAvatarBtnCon,
 .profileImg {
   min-width: 170px !important;
+  max-width: 250px;
+}
+.changeAvatarBtnCon img,
+.profileImg img {
+  max-height: 250px;
+  width: 100%;
 }
 .changeAvatarBtnCon button,
 .profileImg button {
@@ -218,7 +222,7 @@ cta:active,
     border-radius: 0 0.375rem 0.375rem 0;
   }
   .profileSection {
-    max-width: 600px !important;
+    max-width: 800px !important;
   }
   .loginForm,
   .secureImg {

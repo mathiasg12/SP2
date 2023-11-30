@@ -5,7 +5,7 @@ import { PROFILE_URL } from './variables.mjs';
  * @param {string} display1
  * @param {string} display2
  */
-async function getCredit(display1, display2) {
+async function getProfilInfo(display1, display2) {
   try {
     let token = localStorage.getItem('BidHouseToken');
     const auth = {
@@ -24,10 +24,10 @@ async function getCredit(display1, display2) {
       display1.innerText += ' ' + credit;
       display2.innerText += ' ' + credit;
     } else {
-      return await credit;
+      return await responseJson;
     }
   } catch (error) {
     console.log(error);
   }
 }
-export { getCredit };
+export { getProfilInfo };

@@ -1,4 +1,4 @@
-import { getCredit } from './getProfile.mjs';
+import { getProfilInfo } from './getProfile.mjs';
 import { bidOnItem } from './postBid.mjs';
 import { idParameter, auctionObject } from './auctionSpecific.mjs';
 import { AUCTION_URL } from './variables.mjs';
@@ -19,7 +19,8 @@ async function handleClickBid(click) {
     let highestBid = newBidArray[0] ?? 0;
     let highestBidValue = highestBid.amount ?? 0;
     let bidInfo = document.getElementById('bidInfo');
-    const credit = await getCredit();
+    const userInfo = await getProfilInfo();
+    let credit = userInfo.credits;
     if (bidValueNumber <= highestBidValue) {
       bidInfo.classList.add('text-danger');
       bidInfo.classList.remove('text-lime');
