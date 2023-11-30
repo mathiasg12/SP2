@@ -14,4 +14,8 @@ function improvedTimeFormat(oldTime) {
   });
   return newTime;
 }
-export { improvedTimeFormat };
+function convertToIso(oldtime) {
+  let isoTime = new Date(oldtime + ' ' + '12:00').toISOString();
+  return isoTime;
+}
+export { improvedTimeFormat, convertToIso };

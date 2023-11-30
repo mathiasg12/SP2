@@ -1,3 +1,10 @@
+/**
+ * async function that sends an object with a PUT request that changes a users avatar picture, the function also displays a message if any errors occure
+ * @param {string} url
+ * @param {string} link
+ * @param {string} errorText
+ * @param {string} input
+ */
 async function updateAvatar(url, link, errorText, input) {
   try {
     let token = localStorage.getItem('BidHouseToken');

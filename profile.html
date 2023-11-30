@@ -133,16 +133,23 @@
             class="listingForm border border-dark px-3 px-sm-5 py-3 mx-3 rounded"
           >
             <div class="d-flex flex-column align-items-center my-3">
-              <label for="imgLink">Picture link (optional)</label>
-              <input
-                type="text"
-                name="imgLink"
-                id="imgLink"
-                class="bg-searchBarColor"
-              />
+              <div id="imgLabelCon">
+                <label for="imgLink" id="imgLinkLabel"
+                  >Picture link (optional)</label
+                >
+              </div>
+              <div class="d-flex addImageCon">
+                <input
+                  type="text"
+                  name="imgLink"
+                  id="imgLink"
+                  class="bg-searchBarColor w-75"
+                />
+                <button class="bg-searchBarColor w-25" id="addBtn">Add</button>
+              </div>
             </div>
             <div class="d-flex flex-column align-items-center my-3">
-              <label for="title">Title</label>
+              <label for="title" id="titleLabel">Title</label>
               <input
                 type="text"
                 name="ititle"
@@ -151,7 +158,7 @@
               />
             </div>
             <div class="d-flex flex-column align-items-center my-3">
-              <label for="desc">Description</label>
+              <label for="desc" id="descLabel">Description</label>
               <textarea
                 name="desc"
                 id="desc"
@@ -161,16 +168,20 @@
               ></textarea>
             </div>
             <div class="d-flex flex-column align-items-center my-3">
-              <label for="endD">End Date</label>
+              <label for="endD" id="endDLabel">End Date</label>
               <input
                 type="text"
                 name="endD"
                 id="endD"
                 class="bg-searchBarColor"
+                placeholder="MM/DD/YYYY"
               />
             </div>
             <div class="d-flex flex-column align-items-center my-3">
-              <button class="rounded-pill bg-black text-white p-2 listingCta">
+              <button
+                id="listingCta"
+                class="rounded-pill bg-black text-white p-2 listingCta"
+              >
                 Create listning
               </button>
             </div>

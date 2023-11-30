@@ -2,6 +2,7 @@ $myColors: (
   'golden': #d0a933,
   'lightGolden': #fceb72,
   'lime': #14ff00,
+  'darkGreen': rgb(45, 126, 38),
   'searchBarColor': #e0e0e0,
 );
 $myMargins: (
@@ -114,6 +115,11 @@ cta:active,
   background-color: white !important;
   border: black solid 2px;
 }
+#addedImage:hover,
+#addedImage:active {
+  color: red !important;
+  cursor: pointer;
+}
 .fa-magnifying-glass {
   border: 2px solid;
   border-color: blck;
@@ -128,7 +134,8 @@ cta:active,
     transform: rotate(360deg);
   }
 }
-.customButton {
+.customButton,
+.addImageCon {
   max-width: 200px !important;
 }
 .loader {
