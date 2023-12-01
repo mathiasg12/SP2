@@ -4,7 +4,7 @@ import { createHTMLSpecific } from './displaySpecific.mjs';
 let searchForId = document.location.search;
 let findNewParameter = new URLSearchParams(searchForId);
 let idParameter = findNewParameter.get('id');
-let urlWithId = AUCTION_URL + '/' + idParameter + '?_active=true&_bids=true';
+let urlWithId = AUCTION_URL + '/' + idParameter + '?_bids=true';
 let auctionObject = await getAuctions(urlWithId);
 const specificCon = document.getElementById('specificCon');
 createHTMLSpecific(auctionObject, specificCon);

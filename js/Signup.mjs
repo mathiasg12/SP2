@@ -20,8 +20,8 @@ sigupBtn.addEventListener('click', (click) => {
   click.preventDefault();
   regexCheck(email, 'Email', emailLabel, '@stud.noroff.no');
   isEqual(password, repeatPassword, repeatPasswordLabel, 'Reapeat Password');
-  checkLength(password, 8, 'Password', passwordLabel);
-  checkLength(name, 1, 'Name', nameLabel);
+  checkLength(password, 8, 'Password', passwordLabel, 'text-white');
+  checkLength(name, 1, 'Name', nameLabel, 'text-white');
   if (
     regexCheck(email, 'Email', emailLabel, '@stud.noroff.no') == true &&
     isEqual(
@@ -30,8 +30,8 @@ sigupBtn.addEventListener('click', (click) => {
       repeatPasswordLabel,
       'Reapeat Password',
     ) == true &&
-    checkLength(password, 8, 'Password', passwordLabel) == true &&
-    checkLength(name, 1, 'Name', nameLabel) == true
+    checkLength(password, 8, 'Password', passwordLabel, 'text-white') == true &&
+    checkLength(name, 1, 'Name', nameLabel, 'text-white') == true
   ) {
     regiterUser(
       REGISTER_URL,
@@ -44,7 +44,7 @@ sigupBtn.addEventListener('click', (click) => {
     );
   } else {
     name.addEventListener('keyup', () => {
-      checkLength(name, 1, 'Name', nameLabel);
+      checkLength(name, 1, 'Name', nameLabel, 'text-white');
     });
     repeatPassword.addEventListener('keyup', () => {
       isEqual(
@@ -55,7 +55,7 @@ sigupBtn.addEventListener('click', (click) => {
       );
     });
     password.addEventListener('keyup', () => {
-      checkLength(password, 8, 'Password', passwordLabel);
+      checkLength(password, 8, 'Password', passwordLabel, 'text-white');
     });
     email.addEventListener('keyup', () => {
       regexCheck(email, 'Email', emailLabel, '@stud.noroff.no');

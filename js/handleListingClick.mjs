@@ -3,6 +3,19 @@ import { convertToIso } from './timeFormat.mjs';
 import { createListingObject } from './createListingObject.mjs';
 import { AUCTION_URL } from './variables.mjs';
 import { postListing } from './postListing.mjs';
+/**
+ * function that handles the click event when a user clicks create listing. the function uses validation functions that checks the user input,
+ * if the validation passes the function calls the function post listing that sends the lisiting to the api
+ * @param {string} title
+ * @param {string} titleLabel
+ * @param {string} desc
+ * @param {string} descLabel
+ * @param {string} endDate
+ * @param {string} endDateLabel
+ * @param {array} mediaArray
+ * @param {string} form
+ * @param {string} addedImgCon
+ */
 async function handleListingClick(
   title,
   titleLabel,
@@ -11,14 +24,16 @@ async function handleListingClick(
   endDate,
   endDateLabel,
   mediaArray,
+  form,
+  addedImgCon,
 ) {
-  checkLength(title, 2, 'Title', titleLabel);
-  checkLength(desc, 5, 'Description', descLabel);
-  dateRegex(endDate, 'End Date', endDateLabel, 'DD/MM/YY');
+  checkLength(title, 2, 'Title', titleLabel, 'text-black');
+  checkLength(desc, 5, 'Description', descLabel, 'text-black');
+  dateRegex(endDate, 'End Date', endDateLabel, 'DD/MM/YYYY');
   if (
-    checkLength(title, 2, 'Title', titleLabel) == true &&
-    checkLength(desc, 5, 'Description', descLabel) === true &&
-    dateRegex(endDate, 'End Date', endDateLabel, 'DD/MM/YY') == true
+    checkLength(title, 2, 'Title', titleLabel, 'text-black') == true &&
+    checkLength(desc, 5, 'Description', descLabel, 'text-black') === true &&
+    dateRegex(endDate, 'End Date', endDateLabel, 'DD/MM/YYYY') == true
   ) {
     await postListing(
       AUCTION_URL,
@@ -28,16 +43,19 @@ async function handleListingClick(
         mediaArray,
         convertToIso(endDate.value.trim()),
       ),
+      form,
+      mediaArray,
+      addedImgCon,
     );
   } else {
     title.addEventListener('keyup', () => {
-      checkLength(title, 2, 'Title', titleLabel);
+      checkLength(title, 2, 'Title', titleLabel, 'text-black');
     });
     desc.addEventListener('keyup', () => {
-      checkLength(desc, 5, 'Description', descLabel);
+      checkLength(desc, 5, 'Description', descLabel, 'text-black');
     });
     endDate.addEventListener('keyup', () => {
-      dateRegex(endDate, 'End Date', endDateLabel, 'DD/MM/YY');
+      dateRegex(endDate, 'End Date', endDateLabel, 'DD/MM/YYYY');
     });
   }
 }

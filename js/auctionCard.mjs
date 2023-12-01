@@ -1,6 +1,5 @@
 import { improvedTimeFormat } from './timeFormat.mjs';
 import { getLeadingBid } from './findLeadingBid.mjs';
-
 /**
  * funnction that uses an object to make HTML and appends it to a section on the page
  * @param {object} object

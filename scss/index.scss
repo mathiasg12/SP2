@@ -20,6 +20,9 @@ body {
     min-height: 90vh;
   }
 }
+.semiTransparent {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 .insideBorders {
   border-top: solid white 1px;
 }
@@ -56,7 +59,7 @@ input {
   max-width: 200px;
 }
 .auctionCard {
-  width: 250px;
+  width: 250px !important;
   min-height: 420px;
   img {
     height: 200px;
@@ -115,8 +118,8 @@ cta:active,
   background-color: white !important;
   border: black solid 2px;
 }
-#addedImage:hover,
-#addedImage:active {
+.addedImage:hover,
+.addedImage:active {
   color: red !important;
   cursor: pointer;
 }
@@ -145,6 +148,9 @@ cta:active,
   height: 120px !important;
   border-radius: 100%;
   animation: spinning 1s ease-in-out infinite;
+}
+.loaderHistory {
+  border-color: white transparent white transparent !important;
 }
 /*landing page*/
 .img-gavel {
@@ -227,6 +233,10 @@ cta:active,
 @media only screen and (max-width: 250px) {
   .auctionCard {
     width: fit-content;
+  }
+  /*profile page*/
+  .amountAndDateCon {
+    flex-direction: column;
   }
 }
 @import '../node_modules/bootstrap/scss/_functions';
