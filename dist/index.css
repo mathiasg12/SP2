@@ -10,6 +10,10 @@ body main {
   min-height: 90vh;
 }
 
+.semiTransparent {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .insideBorders {
   border-top: solid white 1px;
 }
@@ -55,7 +59,7 @@ input {
 }
 
 .auctionCard {
-  width: 250px;
+  width: 250px !important;
   min-height: 420px;
 }
 .auctionCard img {
@@ -109,7 +113,9 @@ cta:active,
 .changeAvatarBtn:hover,
 .changeAvatarBtn:active,
 .formBtn:hover,
-.formBtn:active {
+.formBtn:active,
+.avatarBtn:hover,
+.avatarBtn:active {
   color: white !important;
   background-color: black !important;
   border: white solid 2px;
@@ -120,6 +126,12 @@ cta:active,
   color: black !important;
   background-color: white !important;
   border: black solid 2px;
+}
+
+.addedImage:hover,
+.addedImage:active {
+  color: red !important;
+  cursor: pointer;
 }
 
 .fa-magnifying-glass {
@@ -137,7 +149,8 @@ cta:active,
     transform: rotate(360deg);
   }
 }
-.customButton {
+.customButton,
+.addImageCon {
   max-width: 200px !important;
 }
 
@@ -148,6 +161,10 @@ cta:active,
   height: 120px !important;
   border-radius: 100%;
   animation: spinning 1s ease-in-out infinite;
+}
+
+.loaderHistory {
+  border-color: white transparent white transparent !important;
 }
 
 /*landing page*/
@@ -183,13 +200,15 @@ cta:active,
   border-width: 1px;
 }
 
-.profileSection {
-  max-width: 298.5px;
-}
-
 .changeAvatarBtnCon,
 .profileImg {
   min-width: 170px !important;
+  max-width: 250px;
+}
+.changeAvatarBtnCon img,
+.profileImg img {
+  max-height: 250px;
+  width: 100%;
 }
 .changeAvatarBtnCon button,
 .profileImg button {
@@ -218,7 +237,7 @@ cta:active,
     border-radius: 0 0.375rem 0.375rem 0;
   }
   .profileSection {
-    max-width: 600px !important;
+    max-width: 800px !important;
   }
   .loginForm,
   .secureImg {
@@ -239,6 +258,10 @@ cta:active,
 @media only screen and (max-width: 250px) {
   .auctionCard {
     width: fit-content;
+  }
+  /*profile page*/
+  .amountAndDateCon {
+    flex-direction: column;
   }
 }
 /*!
@@ -282,6 +305,7 @@ cta:active,
   --bs-golden: #d0a933;
   --bs-lightGolden: #fceb72;
   --bs-lime: #14ff00;
+  --bs-darkGreen: rgb(45, 126, 38);
   --bs-searchBarColor: #e0e0e0;
   --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 108, 117, 125;
@@ -294,6 +318,7 @@ cta:active,
   --bs-golden-rgb: 208, 169, 51;
   --bs-lightGolden-rgb: 252, 235, 114;
   --bs-lime-rgb: 20, 255, 0;
+  --bs-darkGreen-rgb: 45, 126, 38;
   --bs-searchBarColor-rgb: 224, 224, 224;
   --bs-primary-text-emphasis: #052c65;
   --bs-secondary-text-emphasis: #2b2f32;
@@ -3550,6 +3575,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: #14ff00;
 }
 
+.btn-darkGreen {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: rgb(45, 126, 38);
+  --bs-btn-border-color: rgb(45, 126, 38);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #266b20;
+  --bs-btn-hover-border-color: #24651e;
+  --bs-btn-focus-shadow-rgb: 77, 145, 71;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #24651e;
+  --bs-btn-active-border-color: #225f1d;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: rgb(45, 126, 38);
+  --bs-btn-disabled-border-color: rgb(45, 126, 38);
+}
+
 .btn-searchBarColor {
   --bs-btn-color: #000;
   --bs-btn-bg: #e0e0e0;
@@ -3751,6 +3793,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #14ff00;
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: #14ff00;
+  --bs-gradient: none;
+}
+
+.btn-outline-darkGreen {
+  --bs-btn-color: rgb(45, 126, 38);
+  --bs-btn-border-color: rgb(45, 126, 38);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: rgb(45, 126, 38);
+  --bs-btn-hover-border-color: rgb(45, 126, 38);
+  --bs-btn-focus-shadow-rgb: 45, 126, 38;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: rgb(45, 126, 38);
+  --bs-btn-active-border-color: rgb(45, 126, 38);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: rgb(45, 126, 38);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: rgb(45, 126, 38);
   --bs-gradient: none;
 }
 
@@ -5419,6 +5478,13 @@ textarea.form-control-lg {
   --bs-alert-link-color: var(--bs-lime-text-emphasis);
 }
 
+.alert-darkGreen {
+  --bs-alert-color: var(--bs-darkGreen-text-emphasis);
+  --bs-alert-bg: var(--bs-darkGreen-bg-subtle);
+  --bs-alert-border-color: var(--bs-darkGreen-border-subtle);
+  --bs-alert-link-color: var(--bs-darkGreen-text-emphasis);
+}
+
 .alert-searchBarColor {
   --bs-alert-color: var(--bs-searchBarColor-text-emphasis);
   --bs-alert-bg: var(--bs-searchBarColor-bg-subtle);
@@ -5868,6 +5934,19 @@ textarea.form-control-lg {
   --bs-list-group-active-color: var(--bs-lime-bg-subtle);
   --bs-list-group-active-bg: var(--bs-lime-text-emphasis);
   --bs-list-group-active-border-color: var(--bs-lime-text-emphasis);
+}
+
+.list-group-item-darkGreen {
+  --bs-list-group-color: var(--bs-darkGreen-text-emphasis);
+  --bs-list-group-bg: var(--bs-darkGreen-bg-subtle);
+  --bs-list-group-border-color: var(--bs-darkGreen-border-subtle);
+  --bs-list-group-action-hover-color: var(--bs-emphasis-color);
+  --bs-list-group-action-hover-bg: var(--bs-darkGreen-border-subtle);
+  --bs-list-group-action-active-color: var(--bs-emphasis-color);
+  --bs-list-group-action-active-bg: var(--bs-darkGreen-border-subtle);
+  --bs-list-group-active-color: var(--bs-darkGreen-bg-subtle);
+  --bs-list-group-active-bg: var(--bs-darkGreen-text-emphasis);
+  --bs-list-group-active-border-color: var(--bs-darkGreen-text-emphasis);
 }
 
 .list-group-item-searchBarColor {
@@ -7428,6 +7507,11 @@ textarea.form-control-lg {
   background-color: RGBA(var(--bs-lime-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
+.text-bg-darkGreen {
+  color: #fff !important;
+  background-color: RGBA(var(--bs-darkGreen-rgb), var(--bs-bg-opacity, 1)) !important;
+}
+
 .text-bg-searchBarColor {
   color: #000 !important;
   background-color: RGBA(var(--bs-searchBarColor-rgb), var(--bs-bg-opacity, 1)) !important;
@@ -7530,6 +7614,15 @@ textarea.form-control-lg {
 .link-lime:hover, .link-lime:focus {
   color: RGBA(67, 255, 51, var(--bs-link-opacity, 1)) !important;
   text-decoration-color: RGBA(67, 255, 51, var(--bs-link-underline-opacity, 1)) !important;
+}
+
+.link-darkGreen {
+  color: RGBA(var(--bs-darkGreen-rgb), var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(var(--bs-darkGreen-rgb), var(--bs-link-underline-opacity, 1)) !important;
+}
+.link-darkGreen:hover, .link-darkGreen:focus {
+  color: RGBA(36, 101, 30, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(36, 101, 30, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-searchBarColor {
@@ -7984,6 +8077,10 @@ textarea.form-control-lg {
   --bs-focus-ring-color: rgba(var(--bs-lime-rgb), var(--bs-focus-ring-opacity));
 }
 
+.focus-ring-darkGreen {
+  --bs-focus-ring-color: rgba(var(--bs-darkGreen-rgb), var(--bs-focus-ring-opacity));
+}
+
 .focus-ring-searchBarColor {
   --bs-focus-ring-color: rgba(var(--bs-searchBarColor-rgb), var(--bs-focus-ring-opacity));
 }
@@ -8161,6 +8258,11 @@ textarea.form-control-lg {
 .border-lime {
   --bs-border-opacity: 1;
   border-color: rgba(var(--bs-lime-rgb), var(--bs-border-opacity)) !important;
+}
+
+.border-darkGreen {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-darkGreen-rgb), var(--bs-border-opacity)) !important;
 }
 
 .border-searchBarColor {
@@ -9350,6 +9452,11 @@ textarea.form-control-lg {
   color: rgba(var(--bs-lime-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-darkGreen {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-darkGreen-rgb), var(--bs-text-opacity)) !important;
+}
+
 .text-searchBarColor {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-searchBarColor-rgb), var(--bs-text-opacity)) !important;
@@ -9572,6 +9679,11 @@ textarea.form-control-lg {
   text-decoration-color: rgba(var(--bs-lime-rgb), var(--bs-link-underline-opacity)) !important;
 }
 
+.link-underline-darkGreen {
+  --bs-link-underline-opacity: 1;
+  text-decoration-color: rgba(var(--bs-darkGreen-rgb), var(--bs-link-underline-opacity)) !important;
+}
+
 .link-underline-searchBarColor {
   --bs-link-underline-opacity: 1;
   text-decoration-color: rgba(var(--bs-searchBarColor-rgb), var(--bs-link-underline-opacity)) !important;
@@ -9683,6 +9795,11 @@ textarea.form-control-lg {
 .bg-lime {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-lime-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-darkGreen {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-darkGreen-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-searchBarColor {

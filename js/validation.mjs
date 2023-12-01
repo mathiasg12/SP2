@@ -7,16 +7,16 @@
  * @param {string} label
  * @returns {boolean}
  */
-function checkLength(input, length, type, label) {
+function checkLength(input, length, type, label, textColor) {
   if (input.value.trim().length >= length) {
     label.innerText = type;
     label.classList.remove('text-danger');
-    label.classList.add('text-white');
+    label.classList.add(textColor);
     input.classList.remove('border-danger');
     return true;
   } else {
     label.innerText = `${type} needs to have ${length} characters or more`;
-    label.classList.remove('text-white');
+    label.classList.remove(textColor);
     label.classList.add('text-danger');
     input.classList.add('border-danger');
     return false;
@@ -71,4 +71,26 @@ function regexCheck(input, type, label, rightFormat) {
     return false;
   }
 }
-export { regexCheck, isEqual, checkLength };
+/**
+ * function that checks if a date format follows a pre determined format
+ * @param {string} input
+ * @param {string} type
+ * @param {string} label
+ * @param {string} rightFormat
+ * @returns {boolean}
+ */
+function dateRegex(input, type, label, rightFormat) {
+  let regexDate = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+  if (regexDate.test(input.value.trim()) === true) {
+    label.innerText = type;
+    label.classList.remove('text-danger');
+    input.classList.remove('border-danger');
+    return true;
+  } else {
+    label.innerText = `${type} must be in ${rightFormat} format`;
+    label.classList.add('text-danger');
+    input.classList.add('border-danger');
+    return false;
+  }
+}
+export { regexCheck, isEqual, checkLength, dateRegex };

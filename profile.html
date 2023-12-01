@@ -90,36 +90,33 @@
     </header>
     <main class="my-8">
       <h1 class="text-center my-5">Profile</h1>
-      <section
-        class="container bg-black w-75 mx-auto p-4 profileSection rounded"
-      >
+      <section class="container bg-black mx-auto p-4 profileSection rounded">
         <div class="row justify-content-center">
-          <div class="col-md-6">
-            <div class="w-25 profileImg mx-auto">
+          <div class="col-md-5">
+            <div class="w-75 profileImg mx-auto">
               <img
                 src="/pictures/standarUser.jpg"
                 alt="user image"
                 class="img-fluid rounded-top-pill"
+                id="profileImg"
               />
             </div>
-            <div class="w-25 changeAvatarBtnCon mx-auto">
+            <div class="w-75 changeAvatarBtnCon mx-auto">
               <button class="w-100 p-0 py-1 changeAvatarBtn">
                 Change Avatar
               </button>
             </div>
           </div>
-          <div class="mt-4 col-md-6 mt-md-0 px-md-3">
-            <p class="text-white text-center mt-4 mb-3 fs-4">
-              Personal information
-            </p>
-            <div>
-              <p class="text-white fs-5">Name:</p>
+          <div class="mt-4 col-md-7 mt-md-0 px-md-3 text-white">
+            <p class="text-center mt-4 mb-3 fs-4">Personal information</p>
+            <div id="name" class="d-flex align-items-center">
+              <p class="fs-5 mx-2">Name:</p>
             </div>
-            <div>
-              <p class="text-white fs-5">Email:</p>
+            <div id="email" class="d-flex align-items-start">
+              <p class="fs-5 mx-2">Email:</p>
             </div>
-            <div>
-              <p class="text-white fs-5">Credit:</p>
+            <div id="creditProfile" class="d-flex align-items-center">
+              <p class="fs-5 mx-2">Credit:</p>
             </div>
           </div>
           <div class="row justify-content-center">
@@ -132,18 +129,27 @@
       <section>
         <h2 class="mt-5 text-center mb-3">Want to sell an Item?</h2>
         <div class="d-flex justify-content-center">
-          <form class="listingForm border border-dark px-5 py-3 mx-3 rounded">
+          <form
+            class="listingForm border border-dark px-3 px-sm-5 py-3 mx-3 rounded text-center"
+          >
             <div class="d-flex flex-column align-items-center my-3">
-              <label for="imgLink">Picture link (optional)</label>
-              <input
-                type="text"
-                name="imgLink"
-                id="imgLink"
-                class="bg-searchBarColor"
-              />
+              <div id="imgLabelCon">
+                <label for="imgLink" id="imgLinkLabel"
+                  >Picture link (optional)</label
+                >
+              </div>
+              <div class="d-flex addImageCon">
+                <input
+                  type="text"
+                  name="imgLink"
+                  id="imgLink"
+                  class="bg-searchBarColor w-75"
+                />
+                <button class="bg-searchBarColor w-25" id="addBtn">Add</button>
+              </div>
             </div>
             <div class="d-flex flex-column align-items-center my-3">
-              <label for="title">Title</label>
+              <label for="title" id="titleLabel">Title</label>
               <input
                 type="text"
                 name="ititle"
@@ -152,7 +158,7 @@
               />
             </div>
             <div class="d-flex flex-column align-items-center my-3">
-              <label for="desc">Description</label>
+              <label for="desc" id="descLabel">Description</label>
               <textarea
                 name="desc"
                 id="desc"
@@ -162,33 +168,51 @@
               ></textarea>
             </div>
             <div class="d-flex flex-column align-items-center my-3">
-              <label for="endD">End Date</label>
+              <label for="endD" id="endDLabel">End Date</label>
               <input
                 type="text"
                 name="endD"
                 id="endD"
                 class="bg-searchBarColor"
+                placeholder="DD/MM/YYYY"
               />
             </div>
             <div class="d-flex flex-column align-items-center my-3">
-              <button class="rounded-pill bg-black text-white p-2 listingCta">
+              <button
+                id="listingCta"
+                class="rounded-pill bg-black text-white p-2 listingCta"
+              >
                 Create listning
               </button>
             </div>
           </form>
         </div>
       </section>
-      <section>
+      <section class="container">
         <h2 class="mt-5 mb-3 text-center">my auctions</h2>
-        <div class="row"></div>
+        <div class="row">
+          <div
+            class="myAuctionsCon w-100 d-flex flex-column align-items-center flex-md-row flex-md-wrap justify-content-center"
+          ></div>
+          <div
+            class="loader d-flex align-items-center justify-content-center mx-auto my-5"
+          >
+            <p class="fs-1 m-0 p-0 text-golden">$</p>
+          </div>
+        </div>
       </section>
-      <section>
-        <h2 class="mt-5 mb-3 text-center">my active bids</h2>
-        <div class="row"></div>
-      </section>
-      <section>
-        <h2 class="mt-5 mb-3 text-center">auctions won</h2>
-        <div class="row"></div>
+      <section class="container-fluid mt-5 py-5 bg-black text-white w-100">
+        <h2 class="mt-5 mb-3 text-center">Your bid history</h2>
+        <div class="row justify-content-center">
+          <div
+            class="myBidsCon w-100 d-flex flex-column align-items-center flex-md-wrap justify-content-center"
+          ></div>
+          <div
+            class="loader loaderHistory d-flex align-items-center justify-content-center mx-auto my-5"
+          >
+            <p class="fs-1 m-0 p-0 text-golden">$</p>
+          </div>
+        </div>
       </section>
     </main>
     <footer class="bg-black pb-3 mt-7 bottom-0">
