@@ -40,8 +40,10 @@ async function getUserBids(con) {
       con.append(div);
     });
   } else {
+    document.querySelector('.loaderHistory').classList.add('d-none');
     let h3 = document.createElement('h3');
     h3.innerText = 'you have not bid on anything yet';
+    h3.classList.add('text-center', 'my-3');
     con.append(h3);
   }
 }
