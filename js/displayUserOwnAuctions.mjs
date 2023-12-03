@@ -15,6 +15,8 @@ async function displayFromOwnAuctions(url, HtmlFunction, section) {
   } else {
     let h3 = document.createElement('h3');
     h3.innerText = 'You have not made any Listings yet';
+    h3.classList.add('text-center', 'my-3');
+    section.append(h3);
   }
 }
 export { displayFromOwnAuctions };

@@ -20,7 +20,7 @@ haburgerMenuIcon.addEventListener('click', () => {
  */
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('BidHouseToken') == null) {
-    if (location.href.includes('/profile.html')) {
+    if (location.href.includes('/profile')) {
       location.replace('/login.html');
     }
   }
