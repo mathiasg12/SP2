@@ -14,4 +14,14 @@ function improvedTimeFormat(oldTime) {
   });
   return newTime;
 }
-export { improvedTimeFormat };
+/**
+ * function that converts a time format to iso format
+ * @param {string} oldtime
+ * @returns a new format for a string with the format DD/MM/YYYY
+ */
+function convertToIso(oldtime) {
+  let [day, month, year] = oldtime.split('/');
+  let isoTime = new Date(`${year}-${month}-${day} 12:00`).toISOString();
+  return isoTime;
+}
+export { improvedTimeFormat, convertToIso };

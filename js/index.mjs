@@ -1,6 +1,6 @@
 //Index.mjs contain functions that is used on all pages
 import { logOut } from './Logout.mjs';
-import { getCredit } from './getProfile.mjs';
+import { getProfilInfo } from './getProfile.mjs';
 const haburgerMenuIcon = document.getElementById('haburgerMenuIcon');
 const hiddenMenu = document.getElementById('hiddenMenu');
 const credit = document.getElementById('credit');
@@ -20,7 +20,7 @@ haburgerMenuIcon.addEventListener('click', () => {
  */
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('BidHouseToken') == null) {
-    if (location.href.includes('/profile.html')) {
+    if (location.href.includes('/profile')) {
       location.replace('/login.html');
     }
   }
@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('BidHouseToken') != null) {
     credit.classList.remove('d-none');
     creditLi.classList.remove('d-none');
-    getCredit(credit, creditLi);
+    getProfilInfo(credit, creditLi);
     logOutHeader.classList.remove('d-none');
     if (login.classList.contains('d-none') == false) {
       login.classList.add('d-none');

@@ -27,6 +27,7 @@ function createHTMLSpecific(object, section) {
   let bidHistoryContentName = document.createElement('p');
   let bidHistoryContentBid = document.createElement('p');
   let bidHistoryContentDate = document.createElement('p');
+  let imgNr = 0;
   let ctaCon = document.createElement('div');
   bidHistoryContentName.innerText = 'Name';
   bidHistoryContentBid.innerText = 'Bid';
@@ -36,7 +37,7 @@ function createHTMLSpecific(object, section) {
     bidHistoryContentBid,
     bidHistoryContentDate,
   );
-  img.src = media;
+  img.src = media[imgNr];
   bidHistory.innerText = 'Bid History';
   currentBid.innerText = getLeadingBid(bids);
   h1.innerText = title;
@@ -49,6 +50,47 @@ function createHTMLSpecific(object, section) {
   getbidHistory(newBidsArray, bidHistoryCon);
   totalBid.innerText = `Total bids: ${bids.length}`;
   imgCon.append(img);
+  img.id = 'firstImg';
+  if (media.length > 1) {
+    let allImgCon = document.createElement('div');
+    let arrow = document.createElement('i');
+    arrow.id = 'next';
+    arrow.classList.add(
+      'fa-solid',
+      'fa-arrow-right',
+      'my-auto',
+      'fs-1',
+      'mx-1',
+    );
+    for (let i = 0; i < media.length; i++) {
+      let allImg = document.createElement('img');
+      allImg.src = media[i];
+      allImgCon.append(allImg);
+      allImgCon.append(arrow);
+      imgCon.append(allImgCon);
+      allImg.classList.add('img-fluid', 'me-2', 'w-25', 'my-2');
+      allImgCon.classList.add(
+        'w-100',
+        'my-3',
+        'd-flex',
+        'flex-wrap',
+        'justify-content-left',
+      );
+    }
+  }
+  window.addEventListener('click', (click) => {
+    if (click.target.id === 'next') {
+      if (imgNr < media.length - 1) {
+        imgNr++;
+        img.src = media[imgNr];
+        console.log(imgNr);
+      } else {
+        imgNr = 0;
+        img.src = media[imgNr];
+        console.log(imgNr);
+      }
+    }
+  });
   section.append(h1, imgCon, divEndAndBids, ctaCon, bidHistoryCon);
   bidCta.id = 'placeBid';
   h1.classList.add('my-5', 'text-center');

@@ -13,7 +13,7 @@ const errorCon = document.querySelector('.infoText');
 loginBtn.addEventListener('click', (click) => {
   click.preventDefault();
   regexCheck(email, 'Email', emailLabel, '@stud.noroff.no');
-  checkLength(password, 8, 'Password', passwordLabel);
+  checkLength(password, 8, 'Password', passwordLabel, 'text-white');
   if (
     regexCheck(email, 'Email', emailLabel, '@stud.noroff.no') == true &&
     checkLength(password, 8, 'Password', passwordLabel) == true
@@ -21,7 +21,7 @@ loginBtn.addEventListener('click', (click) => {
     loginUser(LOGIN_URL, errorCon, email.value.trim(), password.value.trim());
   } else {
     password.addEventListener('keyup', () => {
-      checkLength(password, 8, 'Password', passwordLabel);
+      checkLength(password, 8, 'Password', passwordLabel, 'text-white');
     });
     email.addEventListener('keyup', () => {
       regexCheck(email, 'Email', emailLabel, '@stud.noroff.no');

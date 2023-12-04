@@ -8,8 +8,8 @@ const con = document.querySelector('.cardCon');
 const moreBtn = document.getElementById('moreBtn');
 const loader = document.querySelector('.loader');
 const sort = document.getElementById('sort');
-let parameters = `?_active=true&_bids=true&limit=${20}&&offset=${0}`;
-let parametersAcending = `?_active=true&_bids=true&limit=${20}&&offset=${0}&&sortOrder=asc`;
+let parameters = `?_active=true&_bids=true&limit=${20}&&offset=${0}&sort=created`;
+let parametersAcending = `?_active=true&_bids=true&limit=${20}&&offset=${0}&sort=created&&sortOrder=asc`;
 let page = 0;
 let searched = false;
 displayFromArray(AUCTION_URL + parameters, createHTMLFromObject, con);
@@ -30,10 +30,14 @@ moreBtn.addEventListener('click', () => {
   let limit = 20;
   let offSet = page * limit;
   if (sort.value === 'oldest') {
-    let newParametersAsc = `?_active=true&_bids=true&limit=${limit}&&offset=${offSet}&sortOrder=asc`;
-    displayFromArray(AUCTION_URL + newParametersAsc, createHTMLFromObject, con);
+    let newParametersAcending = `?_active=true&_bids=true&limit=${limit}&&offset=${offSet}&sort=created&&sortOrder=asc`;
+    displayFromArray(
+      AUCTION_URL + newParametersAcending,
+      createHTMLFromObject,
+      con,
+    );
   } else {
-    let newParameters = `?_active=true&_bids=true&limit=${limit}&&offset=${offSet}`;
+    let newParameters = `?_active=true&_bids=true&limit=${limit}&&offset=${offSet}&sort=created`;
     displayFromArray(AUCTION_URL + newParameters, createHTMLFromObject, con);
   }
 });
