@@ -93,7 +93,7 @@ function createHTMLSpecific(object, section) {
   });
   section.append(h1, imgCon, divEndAndBids, ctaCon, bidHistoryCon);
   bidCta.id = 'placeBid';
-  h1.classList.add('my-5', 'text-center');
+  h1.classList.add('my-5', 'text-center', 'text-break');
   bidHistoryCon.classList.add('container');
   bidHistory.classList.add('text-center', 'fs-4', 'mt-5');
   bidHistoryContent.classList.add(

@@ -1,0 +1,133 @@
+import { getAuctions } from './getAuctions.mjs';
+import { AUCTION_URL } from './variables.mjs';
+import { createHTMLFromObject } from './auctionCard.mjs';
+/**
+ * function that increment the indexNr depending on what numberOfObjects is, it wrappes around the array when the indexNr is bigger than the array length -1,
+ * it then calls the createHtmlfromObject function which displays the correct auctions
+ * @param {string} container
+ * @param {string} indexNr
+ * @param {string} numberOfObjects
+ * @param {string} posts
+ */
+function displayAuctionObjects(container, indexNr, numberOfObjects, posts) {
+  container.innerText = '';
+  for (let i = 0; i < numberOfObjects; i++) {
+    indexNr = (indexNr + i) % posts.length;
+    createHTMLFromObject(posts[indexNr], container);
+    console.log(indexNr);
+  }
+}
+/**
+ * function that decrement the indexNr depending on what numberOfObjects is,it wrappes around the array when the indexNr is under 0,
+ * it then calls the createHtmlfromObject function which displays the correct auctions
+ * @param {string} container
+ * @param {string} indexNr
+ * @param {string} numberOfObjects
+ * @param {string} posts
+ */
+function displayAuctionObjectsReverse(
+  container,
+  indexNr,
+  numberOfObjects,
+  posts,
+) {
+  container.innerText = '';
+  for (let i = 0; i < numberOfObjects; i++) {
+    let newindex = (indexNr - i + 1) % posts.length;
+    createHTMLFromObject(posts[newindex], container);
+    console.log(newindex);
+  }
+}
+/**
+ * async function that stores the response of an api get request in an array it then displays one and one result to the user depending if they press the next arrow or back arrow
+ * @param {string} container
+ * @param {string} loader
+ */
+async function renderCarousell(container, loader) {
+  let posts = [];
+  let url = AUCTION_URL + '?_active=true&_bids=true&limit=12&sort=created';
+  posts = await getAuctions(url);
+  console.log(posts);
+  let indexNr = 0;
+  function diffrentScreenSizes() {
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      indexNr = 0;
+      container.innerText = '';
+      createHTMLFromObject(posts[indexNr], container);
+      loader.classList.add('d-none');
+      window.addEventListener('click', (click) => {
+        if (click.target.id == 'arrowNext') {
+          indexNr++;
+          if (indexNr > posts.length - 1) indexNr = 0;
+          container.innerText = '';
+          createHTMLFromObject(posts[indexNr], container);
+        } else {
+          container.innerText = '';
+          createHTMLFromObject(posts[indexNr], container);
+        }
+      });
+      window.addEventListener('click', (click) => {
+        if (click.target.id == 'arrowBack') {
+          indexNr--;
+          if (indexNr < 0) indexNr = posts.length - 1;
+          container.innerText = '';
+          createHTMLFromObject(posts[indexNr], container);
+        } else {
+          container.innerText = '';
+          createHTMLFromObject(posts[indexNr], container);
+        }
+      });
+    } else if (
+      window.matchMedia('(min-width: 768px) and (max-width: 1300px)').matches
+    ) {
+      indexNr = 0;
+      container.innerText = '';
+      displayAuctionObjects(container, indexNr, 2, posts);
+      loader.classList.add('d-none');
+      window.addEventListener('click', (click) => {
+        if (click.target.id == 'arrowNext') {
+          indexNr = (indexNr + 2) % posts.length;
+          displayAuctionObjects(container, indexNr, 2, posts);
+          console.log('index:' + indexNr);
+        } else if (click.target.id == 'arrowBack') {
+          if (indexNr == 0) {
+            indexNr = posts.length - 2;
+            displayAuctionObjectsReverse(container, indexNr, 2, posts);
+            console.log('index:' + indexNr);
+          } else {
+            indexNr = (indexNr - 2 + posts.length) % posts.length;
+            displayAuctionObjectsReverse(container, indexNr, 2, posts);
+            console.log('index:' + indexNr);
+          }
+        }
+      });
+    } else if (window.matchMedia('(min-width: 1300px)').matches) {
+      indexNr = 0;
+      container.innerText = '';
+      displayAuctionObjects(container, indexNr, 3, posts);
+      loader.classList.add('d-none');
+      window.addEventListener('click', (click) => {
+        if (click.target.id == 'arrowNext') {
+          indexNr = (indexNr + 3) % posts.length;
+          displayAuctionObjects(container, indexNr, 3, posts);
+          console.log('index:' + indexNr);
+        } else if (click.target.id == 'arrowBack') {
+          if (indexNr == 0) {
+            indexNr = posts.length - 3;
+            displayAuctionObjectsReverse(container, indexNr, 3, posts);
+            console.log('index:' + indexNr);
+          } else {
+            indexNr = (indexNr - 3 + posts.length) % posts.length;
+            displayAuctionObjectsReverse(container, indexNr, 3, posts);
+            console.log('index:' + indexNr);
+          }
+        }
+      });
+    }
+  }
+  diffrentScreenSizes();
+  window.addEventListener('resize', () => {
+    diffrentScreenSizes();
+  });
+}
+export { renderCarousell };
