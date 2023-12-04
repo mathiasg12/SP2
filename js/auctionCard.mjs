@@ -15,12 +15,10 @@ function createHTMLFromObject(object, section) {
   let imgCon = document.createElement('div');
   let img = document.createElement('img');
   let h3 = document.createElement('h3');
-  let desc = document.createElement('p');
   let endDate = document.createElement('p');
   let newEndsAt = improvedTimeFormat(endsAt);
   img.src = media;
   h3.innerText = title;
-  desc.innerText = description;
   endDate.innerText = 'Ends at:' + ' ' + newEndsAt;
   highestBid.innerText = getLeadingBid(bids);
   divEnd.append(endDate);
@@ -28,7 +26,6 @@ function createHTMLFromObject(object, section) {
   imgCon.append(img);
   card.append(imgCon);
   card.append(h3);
-  card.append(desc);
   card.append(divBid);
   card.append(divEnd);
   card.href = 'auctionSpecific.html?id=' + id;
@@ -49,9 +46,8 @@ function createHTMLFromObject(object, section) {
     'text-white',
     'text-center',
   );
-  h3.classList.add('my-3');
+  h3.classList.add('my-3', 'fs-4');
   endDate.classList.add('text-golden', 'text-center', 'p-1', 'mt-2', 'mb-2');
-  desc.classList.add('p-1', 'text-center');
   highestBid.classList.add('text-lightGolden', 'mb-2', 'text-center', 'mt-2');
   divEnd.classList.add('insideBorders', 'w-100');
   divBid.classList.add('insideBorders', 'w-100');

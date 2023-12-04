@@ -55,11 +55,11 @@ input {
 }
 
 .auctionCard {
-  width: 250px;
-  min-height: 420px;
+  width: 220px !important;
+  min-height: 400px !important;
 }
 .auctionCard img {
-  height: 200px;
+  max-height: 200px;
 }
 .auctionCard:hover {
   box-shadow: 0 0 25px rgb(0, 0, 0);
