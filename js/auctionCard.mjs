@@ -1,6 +1,21 @@
 import { improvedTimeFormat } from './timeFormat.mjs';
 import { getLeadingBid } from './findLeadingBid.mjs';
 /**
+ * small function that limits the title to 14 characters so a auction cant have a 280 character title, it also adds a "no title" to the card if the object dont have a title
+ * @param {string} title
+ */
+function adjustTitle(title) {
+  if (title != '') {
+    if (title.length >= 14) {
+      return title.slice(0, 14) + '...';
+    } else {
+      return title;
+    }
+  } else {
+    return 'no title';
+  }
+}
+/**
  * funnction that uses an object to make HTML and appends it to a section on the page
  * @param {object} object
  * @param {string} section
@@ -17,7 +32,13 @@ function createHTMLFromObject(object, section) {
   let endDate = document.createElement('p');
   let newEndsAt = improvedTimeFormat(endsAt);
   img.src = media;
-  h3.innerText = title;
+  h3.innerText = adjustTitle(title);
+  /**
+   * eventlistener that adds a default image if the image recived can not be loaded or a image is not recived that all
+   */
+  img.addEventListener('error', () => {
+    img.src = './pictures/error.jpg';
+  });
   endDate.innerText = 'Ends at:' + ' ' + newEndsAt;
   highestBid.innerText = getLeadingBid(bids);
   divEnd.append(endDate);
