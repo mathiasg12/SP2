@@ -1,5 +1,4 @@
 import { getAuctions } from './getAuctions.mjs';
-import { AUCTION_URL } from './variables.mjs';
 import { createHTMLFromObject } from './auctionCard.mjs';
 /**
  * function that increment the indexNr depending on what numberOfObjects is, it wrappes around the array when the indexNr is bigger than the array length -1,
@@ -43,21 +42,31 @@ function displayAuctionObjectsReverse(
  * @param {string} container
  * @param {string} loader
  */
-async function renderCarousell(container, loader) {
+async function renderCarousell(
+  container,
+  loader,
+  URL,
+  arrowBackId,
+  arrowNextId,
+) {
+  let ScreenSize = window.matchMedia('(max-width: 768px)').matches
+    ? 'small'
+    : 'large';
   let posts = [];
-  let url = AUCTION_URL + '?_active=true&_bids=true&limit=12&sort=created';
+  let url = URL;
   posts = await getAuctions(url);
   console.log(posts);
   let indexNr = 0;
   function diffrentScreenSizes() {
+    indexNr = 0;
     if (window.matchMedia('(max-width: 768px)').matches) {
-      indexNr = 0;
       container.innerText = '';
       createHTMLFromObject(posts[indexNr], container);
       loader.classList.add('d-none');
       window.addEventListener('click', (click) => {
-        if (click.target.id == 'arrowNext') {
+        if (click.target.id === arrowNextId) {
           indexNr++;
+          console.log(indexNr);
           if (indexNr > posts.length - 1) indexNr = 0;
           container.innerText = '';
           createHTMLFromObject(posts[indexNr], container);
@@ -67,8 +76,9 @@ async function renderCarousell(container, loader) {
         }
       });
       window.addEventListener('click', (click) => {
-        if (click.target.id == 'arrowBack') {
+        if (click.target.id === arrowBackId) {
           indexNr--;
+          console.log(indexNr);
           if (indexNr < 0) indexNr = posts.length - 1;
           container.innerText = '';
           createHTMLFromObject(posts[indexNr], container);
@@ -77,23 +87,18 @@ async function renderCarousell(container, loader) {
           createHTMLFromObject(posts[indexNr], container);
         }
       });
-    } else if (
-      window.matchMedia('(min-width: 768px) and (max-width: 1300px)').matches
-    ) {
-      indexNr = 0;
+    } else if (window.matchMedia('(min-width: 768px)').matches) {
       container.innerText = '';
       displayAuctionObjects(container, indexNr, 2, posts);
       loader.classList.add('d-none');
       window.addEventListener('click', (click) => {
-        if (click.target.id == 'arrowNext') {
+        if (click.target.id === arrowNextId) {
           indexNr = (indexNr + 2) % posts.length;
           displayAuctionObjects(container, indexNr, 2, posts);
-          console.log('index:' + indexNr);
-        } else if (click.target.id == 'arrowBack') {
+        } else if (click.target.id === arrowBackId) {
           if (indexNr == 0) {
             indexNr = posts.length - 2;
             displayAuctionObjectsReverse(container, indexNr, 2, posts);
-            console.log('index:' + indexNr);
           } else {
             indexNr = (indexNr - 2 + posts.length) % posts.length;
             displayAuctionObjectsReverse(container, indexNr, 2, posts);
@@ -101,33 +106,22 @@ async function renderCarousell(container, loader) {
           }
         }
       });
-    } else if (window.matchMedia('(min-width: 1300px)').matches) {
-      indexNr = 0;
-      container.innerText = '';
-      displayAuctionObjects(container, indexNr, 3, posts);
-      loader.classList.add('d-none');
-      window.addEventListener('click', (click) => {
-        if (click.target.id == 'arrowNext') {
-          indexNr = (indexNr + 3) % posts.length;
-          displayAuctionObjects(container, indexNr, 3, posts);
-          console.log('index:' + indexNr);
-        } else if (click.target.id == 'arrowBack') {
-          if (indexNr == 0) {
-            indexNr = posts.length - 3;
-            displayAuctionObjectsReverse(container, indexNr, 3, posts);
-            console.log('index:' + indexNr);
-          } else {
-            indexNr = (indexNr - 3 + posts.length) % posts.length;
-            displayAuctionObjectsReverse(container, indexNr, 3, posts);
-            console.log('index:' + indexNr);
-          }
-        }
-      });
     }
   }
   diffrentScreenSizes();
+  /**
+   * eventlistener that creates a new variable called newScreenSize that is eighter small or large, the eventlistener listen to resize so if a screen goes from
+   * large to small or small to large, the page reloads(), this was the only way to ensure that the array didnt break if a user went from a small screen to a big screen or vice versa
+   */
   window.addEventListener('resize', () => {
-    diffrentScreenSizes();
+    let newScreensize = window.matchMedia('(max-width: 768px)').matches
+      ? 'small'
+      : 'large';
+    if (newScreensize !== ScreenSize) {
+      container.innerText = '';
+      loader.classList.remove('d-none');
+      location.reload();
+    }
   });
 }
 export { renderCarousell };

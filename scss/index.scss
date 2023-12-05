@@ -60,9 +60,9 @@ input {
 }
 .auctionCard {
   width: 220px !important;
-  min-height: 400px !important;
+  height: 430px !important;
   img {
-    max-height: 200px;
+    height: 200px;
   }
   &:hover {
     box-shadow: 0 0 25px rgba(0, 0, 0, 1);
@@ -161,6 +161,13 @@ cta:active,
   min-width: 10px; //without this, the width of the image is set to zero due to p-0
   max-width: 360px !important;
 }
+.fa-arrow-right:hover,
+.fa-arrow-left:hover,
+.fa-arrow-right:active,
+.fa-arrow-left:active {
+  color: white;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+}
 .discover-section {
   max-width: 720px;
   border: 2px solid black;
@@ -240,7 +247,8 @@ cta:active,
   }
 }
 @media only screen and (max-width: 330px) {
-  .recently-container {
+  .recently-container,
+  .endingSoon-container {
     max-width: 70%;
     :first-child {
       max-width: 100%;

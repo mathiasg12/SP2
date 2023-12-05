@@ -60,10 +60,10 @@ input {
 
 .auctionCard {
   width: 220px !important;
-  min-height: 400px !important;
+  height: 430px !important;
 }
 .auctionCard img {
-  max-height: 200px;
+  height: 200px;
 }
 .auctionCard:hover {
   box-shadow: 0 0 25px rgb(0, 0, 0);
@@ -178,6 +178,14 @@ cta:active,
   max-width: 360px !important;
 }
 
+.fa-arrow-right:hover,
+.fa-arrow-left:hover,
+.fa-arrow-right:active,
+.fa-arrow-left:active {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .discover-section {
   max-width: 720px;
   border: 2px solid black;
@@ -266,10 +274,12 @@ cta:active,
   }
 }
 @media only screen and (max-width: 330px) {
-  .recently-container {
+  .recently-container,
+  .endingSoon-container {
     max-width: 70%;
   }
-  .recently-container :first-child {
+  .recently-container :first-child,
+  .endingSoon-container :first-child {
     max-width: 100%;
   }
   /*profile page*/
