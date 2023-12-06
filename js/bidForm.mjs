@@ -20,8 +20,9 @@ function createBidForm(section) {
       } else {
         bidInfo.innerText = 'Place a bid (min 1 above current price)';
       }
+    } else {
+      bidInfo.innerText = 'Place a bid (min 1 above current price)';
     }
-    bidInfo.innerText = 'Place a bid (min 1 above current price)';
     bidinput.type = 'number';
     bidinput.name = 'bid';
     bidLabel.innerText = 'place bid';

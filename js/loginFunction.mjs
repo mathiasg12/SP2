@@ -6,7 +6,7 @@
  * @param {string} email
  * @param {string} password
  */
-async function loginUser(url, errorCon, email, password) {
+async function loginUser(url, errorCon, email, password, header) {
   try {
     const login = {
       method: 'post',
@@ -30,7 +30,7 @@ async function loginUser(url, errorCon, email, password) {
       errorCon.innerText = responseJson.errors[0].message;
       errorCon.classList.remove('text-white');
       errorCon.classList.add('text-danger');
-      errorCon.scrollIntoView({ behavior: 'smooth' });
+      header.scrollIntoView({ behavior: 'smooth' });
     }
   } catch (error) {
     console.log(error);

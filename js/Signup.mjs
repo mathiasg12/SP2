@@ -12,6 +12,7 @@ const repeatPasswordLabel = document.getElementById('repeatPasswordLabel');
 const avatarLink = document.getElementById('avatar');
 const sigupBtn = document.getElementById('submit');
 const infoText = document.querySelector('.infoText');
+const h1 = document.querySelector('h1');
 /**
  * eventlistener that runs when signup is pressed, it then checks all inputs with the validation functions and if they pass it will run the signup function, if not the user will
  * get an error message at the appropriate place
@@ -41,6 +42,7 @@ sigupBtn.addEventListener('click', (click) => {
       email.value.trim(),
       password.value.trim(),
       avatarLink.value.trim(),
+      h1,
     );
   } else {
     name.addEventListener('keyup', () => {

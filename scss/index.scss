@@ -222,9 +222,6 @@ cta:active,
   .loginForm {
     border-radius: 0 0.375rem 0.375rem 0;
   }
-  .profileSection {
-    max-width: 800px !important;
-  }
   .loginForm,
   .secureImg {
     max-width: 540px !important;
@@ -233,6 +230,14 @@ cta:active,
   #firstImg {
     width: 400px !important;
     height: 250px !important;
+  }
+  /*profile page*/
+  .bidHistoryCon,
+  .profileSection {
+    max-width: 800px !important ;
+  }
+  .customWidthBid {
+    min-width: 380px;
   }
 }
 @media only screen and (max-width: 767px) {

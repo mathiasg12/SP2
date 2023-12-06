@@ -30,7 +30,7 @@ async function handleClickBid(click) {
       bidInfo.classList.remove('text-lime');
       bidInfo.classList.add('text-danger');
       bidInput.classList.add('border-danger');
-      bidInfo.innerText = `your bid of ${bidValueNumber} needs to be higher or exactly your credit balance of ${credit}`;
+      bidInfo.innerText = `your bid of ${bidValueNumber} needs to be smaller or exactly your credit balance of ${credit}`;
     } else {
       bidInfo.classList.remove('text-danger');
       bidInput.classList.remove('border-danger');

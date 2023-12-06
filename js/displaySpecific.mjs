@@ -8,8 +8,8 @@ import { orderedBids } from './sortHighestBid.mjs';
  * @param {object} object
  * @param {string} section
  */
-function createHTMLSpecific(object, section) {
-  let { description, endsAt, media, title, bids } = object;
+function createHTMLSpecific(object, section, loader) {
+  let { description, endsAt, media, title, bids, seller } = object;
   let newBidsArray = orderedBids(bids);
   let divEndAndBids = document.createElement('div');
   let h1 = document.createElement('h1');
@@ -29,6 +29,7 @@ function createHTMLSpecific(object, section) {
   let bidHistoryContentDate = document.createElement('p');
   let imgNr = 0;
   let ctaCon = document.createElement('div');
+  loader.classList.add('d-none');
   bidHistoryContentName.innerText = 'Name';
   bidHistoryContentBid.innerText = 'Bid';
   bidHistoryContentDate.innerText = 'Date';
@@ -38,6 +39,9 @@ function createHTMLSpecific(object, section) {
     bidHistoryContentDate,
   );
   img.src = media[imgNr];
+  img.addEventListener('error', () => {
+    img.src = './pictures/error.jpg';
+  });
   bidHistory.innerText = 'Bid History';
   currentBid.innerText = getLeadingBid(bids);
   h1.innerText = title;
@@ -78,6 +82,10 @@ function createHTMLSpecific(object, section) {
       );
     }
   }
+  /**
+   * event listenere that displays the next image in the media array if a user clicks the arrow symbol, if the user clicks the arrow while
+   * curently at the last image in the array, the array loops around
+   */
   window.addEventListener('click', (click) => {
     if (click.target.id === 'next') {
       if (imgNr < media.length - 1) {
@@ -123,12 +131,21 @@ function createHTMLSpecific(object, section) {
   );
   bidCta.classList.add('rounded-pill', 'ctaCustomHeight', 'my-4', 'my-sm-5');
   /**
-   * event listener that runs when a a user clicks on a item with the id of placeBid it will then make a bid form
+   * event listener that runs when a a user clicks on a item with the id of placeBid it will then make a bid form, if the button is pressed
+   * on the users own post the button is diabled and the user gets a message
    */
   window.addEventListener('click', (click) => {
     if (click.target.id == 'placeBid') {
-      createBidForm(ctaCon);
-      click.target.classList.add('d-none');
+      if (localStorage.getItem('name') === seller.name) {
+        let ctaMessage = document.createElement('p');
+        ctaMessage.innerText = 'you cant bid on your own auction';
+        ctaCon.prepend(ctaMessage);
+        ctaMessage.classList.add('m-0');
+        bidCta.disabled = true;
+      } else {
+        createBidForm(ctaCon);
+        click.target.classList.add('d-none');
+      }
     }
   });
 }

@@ -21,7 +21,6 @@ async function postListing(url, object, form, arrayOfImages, addedImgCon) {
     };
     let sendListing = await fetch(url, listing);
     let response = await sendListing.json();
-    console.log(response);
     if (sendListing.ok) {
       messageCon.append(message);
       message.classList.add('text-darkGreen', 'fs-4', 'text-center');

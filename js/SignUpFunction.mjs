@@ -19,6 +19,7 @@ async function regiterUser(
   email,
   password,
   avatar,
+  header,
 ) {
   try {
     const sendUser = {
@@ -38,7 +39,7 @@ async function regiterUser(
     } else {
       errorCon.innerText = responseJson.errors[0].message;
       errorCon.classList.add('text-danger');
-      errorCon.scrollIntoView({ behavior: 'smooth' });
+      header.scrollIntoView({ behavior: 'smooth' });
     }
   } catch (error) {
     console.log(error);

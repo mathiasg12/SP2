@@ -84,6 +84,8 @@ window.addEventListener('click', async (click) => {
 addBtn.addEventListener('click', (click) => {
   click.preventDefault();
   if (imgLink.value.trim().length > 5) {
+    imgLink.classList.remove('border-danger');
+    imgLinkLabel.classList.remove('text-danger');
     let newImage = imgLink.value.trim();
     arrayOfImages.push(newImage);
     let newImageText = document.createElement('p');
@@ -96,7 +98,9 @@ addBtn.addEventListener('click', (click) => {
     imgLink.value = '';
     console.log(arrayOfImages);
   } else {
-    imgLinkLabel.innerText = 'Please add a valid image link';
+    imgLinkLabel.innerText = 'Please add a valid image link(optional)';
+    imgLink.classList.add('border-danger');
+    imgLinkLabel.classList.add('text-danger');
   }
 });
 /**

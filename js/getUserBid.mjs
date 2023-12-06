@@ -28,6 +28,7 @@ async function getUserBids(con) {
         'd-flex',
         'text-decoration-none',
         'my-3',
+        'customWidthBid',
       );
       bidAmount.classList.add('mx-4', 'text-darkGreen', 'mb-0');
       bidDate.classList.add('mx-4', 'mb-0');
