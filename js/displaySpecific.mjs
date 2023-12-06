@@ -39,8 +39,10 @@ function createHTMLSpecific(object, section, loader) {
     bidHistoryContentDate,
   );
   img.src = media[imgNr];
+  img.alt = `picture of ${title}`;
   img.addEventListener('error', () => {
     img.src = './pictures/error.jpg';
+    img.alt = `backup image, image could not be found`;
   });
   bidHistory.innerText = 'Bid History';
   currentBid.innerText = getLeadingBid(bids);

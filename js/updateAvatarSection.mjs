@@ -8,12 +8,15 @@ function createUpdateSection(con) {
     let contianer = document.createElement('div');
     let p = document.createElement('p');
     let input = document.createElement('input');
+    let label = document.createElement('label');
     let btnUpdate = document.createElement('button');
     let btnCancel = document.createElement('button');
     btnUpdate.id = 'update';
     btnCancel.id = 'cancel';
-    p.id = 'urlInfo';
     input.id = 'newUrl';
+    label.setAttribute('for', 'newUrl');
+    label.innerText = 'new url';
+    p.id = 'urlInfo';
     contianer.id = 'updateSection';
     p.innerText = 'please add a valid image URL';
     btnUpdate.innerText = 'Update';
@@ -40,8 +43,9 @@ function createUpdateSection(con) {
       'bg-danger',
       'avatarBtn',
     );
+    label.hidden = true;
     input.classList.add('my-2');
-    contianer.append(p, input, btnUpdate, btnCancel);
+    contianer.append(p, label, input, btnUpdate, btnCancel);
     con.append(contianer);
   } else {
     document.getElementById('updateSection').classList.remove('d-none');

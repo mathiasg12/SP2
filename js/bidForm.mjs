@@ -2,7 +2,8 @@ import { auctionObject } from './auctionSpecific.mjs';
 import { orderedBids } from './sortHighestBid.mjs';
 import { handleClickBid } from './handleBid.mjs';
 /**
- * function that creates a form and places it in a section
+ * function that creates a form and places it in a section, the form is meant to be used on the specific page,
+ * and allow users to place a bid
  * @param {string} section
  */
 function createBidForm(section) {
@@ -26,6 +27,7 @@ function createBidForm(section) {
     bidinput.type = 'number';
     bidinput.name = 'bid';
     bidLabel.innerText = 'place bid';
+    bidLabel.setAttribute('for', 'bid');
     bidCta.value = 'Place Bid';
     bidCta.id = 'bid';
     bidinput.id = 'bidInput';
@@ -39,10 +41,11 @@ function createBidForm(section) {
       'p-4',
       'text-center',
     );
+    bidLabel.hidden = true;
     bidCta.classList.add('my-3', 'ctaCustomHeight', 'rounded-pill');
     bidinput.classList.add('rounded', 'my-3');
     bidinput.append(bidLabel);
-    bidForm.append(bidInfo, bidinput, bidCta);
+    bidForm.append(bidInfo, bidLabel, bidinput, bidCta);
     section.append(bidForm);
   } else {
     let btn = document.createElement('button');
