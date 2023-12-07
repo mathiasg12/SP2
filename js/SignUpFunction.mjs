@@ -34,7 +34,6 @@ async function regiterUser(
     if (response.status !== 400) {
       errorCon.innerText = 'Create a free Account';
       errorCon.classList.add('text-white');
-      console.log(responseJson);
       await loginUser(loginUrl, errorCon, email, password);
     } else {
       errorCon.innerText = responseJson.errors[0].message;

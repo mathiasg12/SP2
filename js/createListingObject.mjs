@@ -1,5 +1,5 @@
 /**
- * function that makes an object with four propertys, title,description,media array and end date
+ * function that makes an object with four properties, title,description,media array and end date
  * @param {string} title
  * @param {string} desc
  * @param {array} mediaArray

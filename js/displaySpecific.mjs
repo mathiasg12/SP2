@@ -93,11 +93,9 @@ function createHTMLSpecific(object, section, loader) {
       if (imgNr < media.length - 1) {
         imgNr++;
         img.src = media[imgNr];
-        console.log(imgNr);
       } else {
         imgNr = 0;
         img.src = media[imgNr];
-        console.log(imgNr);
       }
     }
   });

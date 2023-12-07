@@ -1,6 +1,6 @@
 import { orderedBids } from './sortHighestBid.mjs';
 /**
- * function that takes the last object in an arrray (leading bid) and rturns that object
+ * function that takes the last object in an arrray (leading bid) and returns that object
  * @param {array} bids
  * @returns {object}
  */

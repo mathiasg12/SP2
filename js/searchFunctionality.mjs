@@ -16,7 +16,6 @@ function searchForAuction(array, searchInput) {
       }
     }
   });
-  console.log(searchedArray);
   return searchedArray;
 }
 export { searchForAuction };

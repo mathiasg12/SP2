@@ -16,7 +16,7 @@ haburgerMenuIcon.addEventListener('click', () => {
   hiddenMenu.classList.toggle('hamburger-menu');
 });
 /**
- * addeventlistener that runs if a new page is about to load, then it checks if the page is profile.html it will then send not logged in users to login page
+ * addeventlistener that runs if a new page is about to load, then it checks if the page is profile.html it will then send "not logged in" users to login page
  */
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('BidHouseToken') == null) {
@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
  * event listener that runs when the page is loaded it add or removes items from the header depending if the user is logged in
  * @example
  * //user is logged in
- * it the removes login and signup from header
+ * it then removes login and signup from header
  * and adds credit and logout button
  * //user is not logged in
  * it then removes logout button and credit

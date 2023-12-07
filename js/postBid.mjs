@@ -18,7 +18,6 @@ async function bidOnItem(url, yourBid, bidInfo) {
     let sendBid = await fetch(url, bid);
     let response = await sendBid.json();
     location.reload();
-    console.log(response);
   } catch (error) {
     console.log(error);
   }

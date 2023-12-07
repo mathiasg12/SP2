@@ -58,7 +58,7 @@ function createHTMLFromObject(object, section) {
     'flex-column',
     'bg-black',
     'p-2',
-    'my-5',
+    'my-4',
     'mx-md-4',
     'auctionCard',
     'rounded',

@@ -13,7 +13,6 @@ function displayAuctionObjects(container, indexNr, numberOfObjects, posts) {
   for (let i = 0; i < numberOfObjects; i++) {
     indexNr = (indexNr + i) % posts.length;
     createHTMLFromObject(posts[indexNr], container);
-    console.log(indexNr);
   }
 }
 /**
@@ -34,7 +33,6 @@ function displayAuctionObjectsReverse(
   for (let i = 0; i < numberOfObjects; i++) {
     let newindex = (indexNr - i + 1) % posts.length;
     createHTMLFromObject(posts[newindex], container);
-    console.log(newindex);
   }
 }
 /**
@@ -55,7 +53,6 @@ async function renderCarousell(
   let posts = [];
   let url = URL;
   posts = await getAuctions(url);
-  console.log(posts);
   let indexNr = 0;
   function diffrentScreenSizes() {
     indexNr = 0;
@@ -66,7 +63,6 @@ async function renderCarousell(
       window.addEventListener('click', (click) => {
         if (click.target.id === arrowNextId) {
           indexNr++;
-          console.log(indexNr);
           if (indexNr > posts.length - 1) indexNr = 0;
           container.innerText = '';
           createHTMLFromObject(posts[indexNr], container);
@@ -75,10 +71,12 @@ async function renderCarousell(
           createHTMLFromObject(posts[indexNr], container);
         }
       });
+      /**
+       * event listener that runs if the user clicks the arrow symbol if so, the function will increment the indexNr variable and run a function called displayAuctionObject
+       */
       window.addEventListener('click', (click) => {
         if (click.target.id === arrowBackId) {
           indexNr--;
-          console.log(indexNr);
           if (indexNr < 0) indexNr = posts.length - 1;
           container.innerText = '';
           createHTMLFromObject(posts[indexNr], container);
@@ -91,6 +89,9 @@ async function renderCarousell(
       container.innerText = '';
       displayAuctionObjects(container, indexNr, 2, posts);
       loader.classList.add('d-none');
+      /**
+       * event listener that runs if the user clicks the arrow symbol if so, the function will increment the indexNr variable and run a function called displayAuctionObject
+       */
       window.addEventListener('click', (click) => {
         if (click.target.id === arrowNextId) {
           indexNr = (indexNr + 2) % posts.length;
@@ -102,7 +103,6 @@ async function renderCarousell(
           } else {
             indexNr = (indexNr - 2 + posts.length) % posts.length;
             displayAuctionObjectsReverse(container, indexNr, 2, posts);
-            console.log('index:' + indexNr);
           }
         }
       });

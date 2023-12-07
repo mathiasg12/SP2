@@ -10,14 +10,13 @@ async function getAuctions(url) {
     };
     const response = await fetch(url, method);
     const responseJson = await response.json();
-    console.log(responseJson);
     return responseJson;
   } catch (error) {
     console.log(error);
   }
 }
 /**
- * a get function that loops thru the array and puts all auctions in an new array it then flaten the array og arrays to a array of objects
+ * a get function that loops thru the array and puts all auctions in an new array it then flaten the array of arrays to a array of objects
  * @param {string} url
  * @returns flat array with all auctions in the api
  */

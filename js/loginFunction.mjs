@@ -20,7 +20,6 @@ async function loginUser(url, errorCon, email, password, header) {
         'Login to start biding or signup with a Free account';
       errorCon.classList.remove('text-danger');
       errorCon.classList.add('text-white');
-      console.log(responseJson);
       if (responseJson.accessToken != undefined) {
         localStorage.setItem('BidHouseToken', responseJson.accessToken);
         localStorage.setItem('name', responseJson.name);

@@ -1,6 +1,6 @@
 import { getProfilInfo } from './getProfile.mjs';
 /**
- * function that sends a get request to the api that returns a profile object, the function the stores the profile information in a variable, the function also displays some information,
+ * function that sends a get request to the api that returns a profile object, the function then stores the profile information in a variable, the function also displays some information,
  * like name,email and credit
  * @param {string} nameEl
  * @param {string} emailEl

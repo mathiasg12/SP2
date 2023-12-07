@@ -32,7 +32,6 @@ async function postListing(url, object, form, arrayOfImages, addedImgCon) {
       for (let i = 0; i < allPElements.length; i++) {
         addedImgCon.removeChild(allPElements[i]);
       }
-      console.log(arrayOfImages);
     } else {
       message.innerText =
         'something went wrong please try again later:' +

@@ -32,7 +32,7 @@ const bidsMadeCon = document.querySelector('.myBidsCon');
 imgLabelCon;
 let arrayOfImages = [];
 /**
- * eventlistener that rund when the user presses logOut it then runs the logOut fuction
+ * eventlistener that runs when the user presses logOut, it then runs the logOut fuction
  */
 logOutBtn.addEventListener('click', () => {
   logOut();
@@ -79,7 +79,7 @@ window.addEventListener('click', async (click) => {
   }
 });
 /**
- * event listener that runs if the add image button is pressed the function then adds the imag url to the image array and the displays a shortened version to the user
+ * event listener that runs if the add image button is pressed the function then adds the image url to the image array and then displays a shortened version to the user
  */
 addBtn.addEventListener('click', (click) => {
   click.preventDefault();
@@ -96,7 +96,6 @@ addBtn.addEventListener('click', (click) => {
     imgLabelCon.append(newImageText);
     imgLinkLabel.innerText = 'Added pictures(click to remove):';
     imgLink.value = '';
-    console.log(arrayOfImages);
   } else {
     imgLinkLabel.innerText = 'Please add a valid image link(optional)';
     imgLink.classList.add('border-danger');
@@ -104,7 +103,7 @@ addBtn.addEventListener('click', (click) => {
   }
 });
 /**
- * event listener that runs if the create listing button is pressed the function the scolls the user to the top of the form and deletes any validation messages in the form
+ * event listener that runs if the create listing button is pressed the function then scolls the user to the top of the form and deletes any validation messages in the form
  * to prevent duplication, the function then calls handleListingClick function
  */
 listingCta.addEventListener('click', (click) => {
@@ -135,7 +134,6 @@ window.addEventListener('click', (click) => {
     let idToDelete = click.target.id;
     let indexDelete = arrayOfImages.indexOf(idToDelete);
     arrayOfImages.splice(indexDelete, 1);
-    console.log(arrayOfImages);
     imgLabelCon.removeChild(document.getElementById(idToDelete));
     if (arrayOfImages.length < 1) {
       imgLinkLabel.innerText = 'Picture link (optional)';

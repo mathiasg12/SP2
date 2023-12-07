@@ -4,7 +4,7 @@ import { PROFILE_URL } from './variables.mjs';
 import { improvedTimeFormat } from './timeFormat.mjs';
 /**
  * async function that gets a users bid history with a function called getOwnAuctions and calls the getprofileInfo function which retrives profile info,
- * the function the loops the bid array and then dispalays it in a section (con), if the user has not bid on anything they will recive a message
+ * the function then loops the bid array and then dispalays it in a section (con), if the user has not bid on anything they will recive a message
  * @param {string} con
  */
 async function getUserBids(con) {
