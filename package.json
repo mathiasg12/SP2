@@ -8,9 +8,6 @@
     "build": "sass scss:dist",
     "prepare": "husky install"
   },
-  "eslintIgnore": [
-    "node_modules/*"
-  ],
   "author": "mathias gauslå",
   "license": "ISC",
   "devDependencies": {
