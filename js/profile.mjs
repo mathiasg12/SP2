@@ -29,6 +29,7 @@ const listingCta = document.getElementById('listingCta');
 const form = document.querySelector('.listingForm');
 const ownAuctionsCon = document.querySelector('.myAuctionsCon');
 const bidsMadeCon = document.querySelector('.myBidsCon');
+const profileSection = document.querySelector('.profileSection');
 imgLabelCon;
 let arrayOfImages = [];
 /**
@@ -37,7 +38,7 @@ let arrayOfImages = [];
 logOutBtn.addEventListener('click', () => {
   logOut();
 });
-dispalyUserInfo(name, email, credit, avatar);
+dispalyUserInfo(name, email, credit, avatar, profileSection);
 displayFromOwnAuctions(
   PROFILE_URL + `${localStorage.getItem('name')}/listings?_bids=true`,
   createHTMLFromObject,
@@ -65,6 +66,7 @@ window.addEventListener('click', async (click) => {
     let user = await getProfilInfo();
     let urlInfo = document.getElementById('urlInfo');
     if (newURL.length >= 5) {
+      urlInfo.classList.remove('labelDanger');
       updateAvatar(
         PROFILE_URL + user.name + '/media',
         newURL,
@@ -72,6 +74,7 @@ window.addEventListener('click', async (click) => {
         inputUrl,
       );
     } else {
+      urlInfo.classList.add('labelDanger');
       inputUrl.classList.add('border-danger');
       urlInfo.innerText = 'Please enter a valid URl';
       urlInfo.classList.add('text-danger');

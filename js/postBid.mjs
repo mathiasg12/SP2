@@ -5,7 +5,7 @@
  * @param {Number} yourBid
  * @param {string} bidInfo
  */
-async function bidOnItem(url, yourBid, bidInfo) {
+async function bidOnItem(url, yourBid, bidInfo, input) {
   try {
     const bid = {
       method: 'post',
@@ -17,8 +17,16 @@ async function bidOnItem(url, yourBid, bidInfo) {
     };
     let sendBid = await fetch(url, bid);
     let response = await sendBid.json();
-    location.reload();
+    if (sendBid.ok) {
+      location.reload();
+    } else {
+      bidInfo.classList.add('apiError', 'text-white');
+      bidInfo.innerText = `sorry somthing went wrong, ${response.errors[0].message}`;
+      input.classList.add('border-danger');
+    }
   } catch (error) {
+    bidInfo.classList.add('apiError', 'text-white');
+    bidInfo.innerText = `sorry somthing went wrong, ${error}`;
     console.log(error);
   }
 }

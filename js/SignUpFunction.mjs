@@ -42,6 +42,9 @@ async function regiterUser(
     }
   } catch (error) {
     console.log(error);
+    errorCon.innerText = `sorry something went wrong, ${error}`;
+    errorCon.classList.add('apiError');
+    document.querySelector('html').scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
 export { regiterUser };

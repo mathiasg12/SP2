@@ -22,23 +22,24 @@ async function handleClickBid(click) {
     const userInfo = await getProfilInfo();
     let credit = userInfo.credits;
     if (bidValueNumber <= highestBidValue) {
-      bidInfo.classList.add('text-danger');
+      bidInfo.classList.add('text-danger', 'labelDanger');
       bidInfo.classList.remove('text-lime');
       bidInput.classList.add('border-danger');
       bidInfo.innerText = `your bid of ${bidValueNumber} needs to be higher than the previous highest bid of ${highestBidValue}`;
     } else if (credit < bidValueNumber) {
       bidInfo.classList.remove('text-lime');
-      bidInfo.classList.add('text-danger');
+      bidInfo.classList.add('text-danger', 'labelDanger');
       bidInput.classList.add('border-danger');
       bidInfo.innerText = `your bid of ${bidValueNumber} needs to be smaller or exactly your credit balance of ${credit}`;
     } else {
-      bidInfo.classList.remove('text-danger');
+      bidInfo.classList.remove('text-danger', 'labelDanger');
       bidInput.classList.remove('border-danger');
       bidInfo.innerText = `'Place a bid (min 1 above current price)'`;
       await bidOnItem(
         AUCTION_URL + '/' + idParameter + '/bids',
         bidValueNumber,
         bidInfo,
+        bidInput,
       );
     }
   }

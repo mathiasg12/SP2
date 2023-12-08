@@ -7,8 +7,8 @@ import { getProfilInfo } from './getProfile.mjs';
  * @param {string} creditsEL
  * @param {string} profileImg
  */
-async function dispalyUserInfo(nameEl, emailEl, creditsEL, profileImg) {
-  let user = await getProfilInfo();
+async function dispalyUserInfo(nameEl, emailEl, creditsEL, profileImg, con) {
+  let user = await getProfilInfo(con);
   let { email, name, credits, avatar } = user;
   let userName = document.createElement('p');
   let userEmail = document.createElement('p');

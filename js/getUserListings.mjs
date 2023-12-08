@@ -3,7 +3,7 @@
  * @param {string} url
  * @returns an array of objects
  */
-async function getOwnAuctions(url) {
+async function getOwnAuctions(url, section) {
   try {
     const method = {
       method: 'GET',
@@ -16,7 +16,10 @@ async function getOwnAuctions(url) {
     const responseJson = await response.json();
     return responseJson;
   } catch (error) {
-    console.log(error);
+    let errorMessage = document.createElement('p');
+    errorMessage.innerText = `Sorry something went wrong: ${error}`;
+    errorMessage.classList.add('apiError', 'text-white');
+    section.append(errorMessage);
   }
 }
 export { getOwnAuctions };

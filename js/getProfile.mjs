@@ -27,7 +27,18 @@ async function getProfilInfo(display1, display2) {
       return await responseJson;
     }
   } catch (error) {
-    console.log(error);
+    if (display1 && display2 != undefined) {
+      display1.classList.add('apiError', 'text-white');
+      display2.classList.add('apiError', 'text-white');
+      display1.innerText = `Something went wrong`;
+      display2.innerText = `Something went wrong`;
+      if (document.querySelector('.profileSection') != undefined) {
+        let errormsg = document.createElement('p');
+        errormsg.classList.add('apiError', 'text-white', 'my-5');
+        errormsg.innerText = `Something went wrong`;
+        document.querySelector('.profileSection').prepend(errormsg);
+      }
+    }
   }
 }
 export { getProfilInfo };

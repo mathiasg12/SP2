@@ -18,15 +18,20 @@ async function updateAvatar(url, link, errorText, input) {
     };
     let sendData = await fetch(url, sendAvatar);
     if (sendData.ok) {
+      errorText.classList.remove('apiError');
+      errorText.classList.remove('text-danger');
       location.reload();
     } else {
+      errorText.classList.add('apiError');
       errorText.innerText =
         'sorry bad URL eighter you wrote it wrong or it is not a public picture';
-      errorText.classList.add('text-danger');
+      errorText.classList.remove('text-danger');
       input.classList.add('border-danger');
     }
   } catch (error) {
     console.log(error);
+    errorText.classList.add('apiError');
+    errorText.classList.remove('text-danger');
     errorText.innerText = 'sorry something went wrong, try agian later';
   }
 }

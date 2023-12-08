@@ -8,9 +8,9 @@ import { improvedTimeFormat } from './timeFormat.mjs';
  * @param {string} con
  */
 async function getUserBids(con) {
-  let user = await getProfilInfo();
+  let user = await getProfilInfo(con);
   let { name } = user;
-  let bids = await getOwnAuctions(PROFILE_URL + name + '/bids');
+  let bids = await getOwnAuctions(PROFILE_URL + name + '/bids', con);
   if (bids.length >= 1) {
     document.querySelector('.loaderHistory').classList.add('d-none');
     bids.forEach((bid) => {

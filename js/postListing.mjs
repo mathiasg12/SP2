@@ -47,6 +47,11 @@ async function postListing(url, object, form, arrayOfImages, addedImgCon) {
     }
   } catch (error) {
     console.log(error);
+    message.innerText = `something went wrong please try again later ${error}`;
+    messageCon.append(message);
+    form.prepend(messageCon);
+    message.classList.add('mb-0');
+    messageCon.classList.add('apiError', 'text-white');
   }
 }
 export { postListing };

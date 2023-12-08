@@ -6,7 +6,7 @@ import { getOwnAuctions } from './getUserListings.mjs';
  * @param {string} section
  */
 async function displayFromOwnAuctions(url, HtmlFunction, section) {
-  let arrayOfAuction = await getOwnAuctions(url);
+  let arrayOfAuction = await getOwnAuctions(url, section);
   document.querySelector('.loader').classList.add('d-none');
   if (arrayOfAuction.length >= 1) {
     arrayOfAuction.forEach((auctions) => {

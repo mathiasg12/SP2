@@ -13,6 +13,11 @@ async function getAuctions(url) {
     return responseJson;
   } catch (error) {
     console.log(error);
+    let errorCon = document.createElement('p');
+    errorCon.innerText = `Sorry something went wrong: ${error}`;
+    errorCon.classList.add('apiError', 'text-white', 'my-5');
+    document.querySelector('main').prepend(errorCon);
+    document.querySelector('html').scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
 /**
@@ -46,6 +51,11 @@ async function getAllAuctions(url) {
     }
   } catch (error) {
     console.log(error);
+    let errorCon = document.createElement('p');
+    errorCon.innerText = `Sorry something went wrong: ${error}`;
+    errorCon.classList.add('apiError', 'text-white');
+    document.querySelector('main').prepend(errorCon);
+    document.querySelector('html').scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
 export { getAuctions, getAllAuctions };
