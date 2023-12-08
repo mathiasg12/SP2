@@ -13,12 +13,21 @@ function checkLength(input, length, type, label, textColor) {
     label.classList.remove('text-danger');
     label.classList.add(textColor);
     input.classList.remove('border-danger');
+    label.classList.remove('labelDangerWhite');
+    label.classList.remove('labelDanger');
+    label.classList.add('lh-lh');
     return true;
   } else {
     label.innerText = `${type} needs to have ${length} characters or more`;
     label.classList.remove(textColor);
     label.classList.add('text-danger');
     input.classList.add('border-danger');
+    if (label.id === 'titleLabel' || label.id === 'descLabel') {
+      label.classList.add('labelDangerWhite');
+    } else {
+      label.classList.add('labelDanger');
+    }
+    label.classList.remove('lh-lh');
     return false;
   }
 }
@@ -37,12 +46,16 @@ function isEqual(input1, input2, label2, type) {
     label2.classList.add('text-white');
     label2.classList.remove('text-danger');
     input2.classList.remove('border-danger');
+    label2.classList.remove('labelDanger');
+    label2.classList.add('lh-lh');
     return true;
   } else {
     label2.innerText = `${type} needs to match Password`;
     label2.classList.remove('text-white');
     label2.classList.add('text-danger');
     input2.classList.add('border-danger');
+    label2.classList.add('labelDanger');
+    label2.classList.remove('lh-lh');
     return false;
   }
 }
@@ -62,11 +75,15 @@ function regexCheck(input, type, label, rightFormat) {
     label.classList.remove('text-danger');
     label.classList.add('text-white');
     input.classList.remove('border-danger');
+    label.classList.remove('labelDanger');
+    label.classList.add('lh-lh');
     return true;
   } else {
     label.innerText = `${type} must be a ${rightFormat} address`;
     label.classList.remove('text-white');
     label.classList.add('text-danger');
+    label.classList.add('labelDanger');
+    label.classList.remove('lh-lh');
     input.classList.add('border-danger');
     return false;
   }
@@ -84,11 +101,13 @@ function dateRegex(input, type, label, rightFormat) {
   if (regexDate.test(input.value.trim()) === true) {
     label.innerText = type;
     label.classList.remove('text-danger');
+    label.classList.remove('labelDangerWhite');
     input.classList.remove('border-danger');
     return true;
   } else {
     label.innerText = `${type} must be in ${rightFormat} format`;
     label.classList.add('text-danger');
+    label.classList.add('labelDangerWhite');
     input.classList.add('border-danger');
     return false;
   }

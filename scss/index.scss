@@ -124,8 +124,33 @@ cta:active,
 }
 .addedImage:hover,
 .addedImage:active {
-  color: red !important;
+  color: #ff0000 !important;
   cursor: pointer;
+}
+.labelDanger,
+.labelDangerWhite {
+  max-width: 220px;
+  background-color: rgba(51, 51, 51, $alpha: 0.4);
+  border-radius: 10%;
+  padding: 5px;
+  margin: 10px;
+}
+.labelDangerWhite {
+  background-color: rgba($color: #949494, $alpha: 0.2);
+  border: red solid 1px;
+}
+.apiError,
+.apiSuccess {
+  max-width: fit-content;
+  margin: 0 auto;
+  background-color: rgb(175, 65, 83);
+  border: rgb(255, 89, 117) 2px solid;
+  padding: 15px;
+  font-weight: bold;
+}
+.apiSuccess {
+  background-color: rgba(140, 233, 154, $alpha: 0.4);
+  border-color: green;
 }
 .fa-magnifying-glass {
   border: 2px solid;
@@ -191,6 +216,7 @@ cta:active,
     border-width: 1px;
   }
 }
+
 .changeAvatarBtnCon,
 .profileImg {
   min-width: 170px !important;
@@ -204,14 +230,20 @@ cta:active,
   }
 }
 /*specific page*/
-.imgSpecific {
-  max-width: 300px !important;
-}
 .specificP {
   overflow-wrap: break-word;
 }
 #specificCon {
   max-width: 950px;
+}
+.soldByCon {
+  max-width: fit-content !important;
+  img {
+    max-width: 100px !important;
+  }
+}
+.divEndAndBids {
+  max-width: 350px !important;
 }
 
 @media only screen and (min-width: 769px) {
@@ -238,6 +270,9 @@ cta:active,
   }
   .customWidthBid {
     min-width: 380px;
+  }
+  .imgSpecific {
+    min-width: 400px !important;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -269,6 +304,9 @@ cta:active,
   #firstImg {
     width: 280px;
     height: 190px;
+  }
+  .imgSpecific {
+    max-width: 280px !important;
   }
 }
 @import '../node_modules/bootstrap/scss/_functions';

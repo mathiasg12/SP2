@@ -10,6 +10,7 @@ import { orderedBids } from './sortHighestBid.mjs';
  */
 function createHTMLSpecific(object, section, loader) {
   let { description, endsAt, media, title, bids, seller } = object;
+  console.log(object);
   let newBidsArray = orderedBids(bids);
   let divEndAndBids = document.createElement('div');
   let h1 = document.createElement('h1');
@@ -29,6 +30,40 @@ function createHTMLSpecific(object, section, loader) {
   let bidHistoryContentDate = document.createElement('p');
   let imgNr = 0;
   let ctaCon = document.createElement('div');
+  let soldByCon = document.createElement('div');
+  let soldByHeading = document.createElement('p');
+  let soldByName = document.createElement('p');
+  let soldByAvatar = document.createElement('img');
+  soldByName.innerText = seller.name;
+  soldByAvatar.src = seller.avatar;
+  soldByHeading.innerText = 'Seller information';
+  soldByAvatar.alt = `avatar of ${seller.name}`;
+  soldByCon.append(soldByHeading, soldByAvatar, soldByName);
+  soldByAvatar.addEventListener('error', () => {
+    soldByAvatar.src = './pictures/error.jpg';
+    soldByAvatar.alt = `backup image, image could not be found`;
+  });
+  soldByAvatar.classList.add(
+    'img-fluid',
+    'img-thumbnail',
+    'rounded-circle',
+    'customWidthImages',
+  );
+  soldByCon.classList.add(
+    'd-flex',
+    'flex-column',
+    'align-items-center',
+    'p-3',
+    'mx-auto',
+    'mx-md-0',
+    'mt-5',
+    'mt-md-2',
+    'border',
+    'soldByCon',
+    'text-center',
+  );
+  soldByHeading.classList.add('fs-5', 'mb-4');
+  soldByName.classList.add('my-2');
   loader.classList.add('d-none');
   bidHistoryContentName.innerText = 'Name';
   bidHistoryContentBid.innerText = 'Bid';
@@ -51,7 +86,7 @@ function createHTMLSpecific(object, section, loader) {
   desc.innerText = description;
   endDate.innerText = `Ends at: ${newEndsAt}`;
   ctaCon.append(bidCta);
-  divEndAndBids.append(desc, currentBid, totalBid, endDate);
+  divEndAndBids.append(desc, currentBid, totalBid, endDate, soldByCon);
   bidHistoryCon.append(bidHistory, bidHistoryContent);
   getbidHistory(newBidsArray, bidHistoryCon);
   totalBid.innerText = `Total bids: ${bids.length}`;
@@ -81,6 +116,7 @@ function createHTMLSpecific(object, section, loader) {
         'd-flex',
         'flex-wrap',
         'justify-content-left',
+        'col-md-8',
       );
     }
   }
@@ -117,17 +153,30 @@ function createHTMLSpecific(object, section, loader) {
   totalBid.classList.add('mb-2', 'customSpacingRules');
   currentBid.classList.add('mb-2', 'fs-5', 'customSpacingRules');
   ctaCon.classList.add('text-center', 'my-4');
-  desc.classList.add('my-0', 'mb-4', 'text-white');
+  desc.classList.add('my-0', 'mb-3', 'text-white');
   endDate.classList.add('text-golden', 'customSpacingRules');
   img.classList.add('img-fluid');
-  imgCon.classList.add('imgSpecific', 'mx-auto', 'mx-md-1', 'col-md-6');
+  imgCon.classList.add(
+    'imgSpecific',
+    'mx-auto',
+    'mx-md-1',
+    'col-md-6',
+    'd-flex',
+    'flex-column',
+    'align-items-center',
+  );
   divEndAndBids.classList.add(
     'my-4',
-    'col-md-6',
+    'col-md-4',
     'mx-auto',
     'mx-md-1',
     'my-md-0',
     'customSpacingRules',
+    'divEndAndBids',
+    'd-flex',
+    'flex-column',
+    'align-items-center',
+    'align-items-md-start',
   );
   bidCta.classList.add('rounded-pill', 'ctaCustomHeight', 'my-4', 'my-sm-5');
   /**

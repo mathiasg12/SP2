@@ -23,7 +23,9 @@ async function postListing(url, object, form, arrayOfImages, addedImgCon) {
     let response = await sendListing.json();
     if (sendListing.ok) {
       messageCon.append(message);
-      message.classList.add('text-darkGreen', 'fs-4', 'text-center');
+      message.classList.add('fs-4', 'text-center');
+      messageCon.classList.add('apiSuccess');
+      messageCon.classList.remove('apiError', 'text-white');
       message.innerText = ' You successfully created a Listing';
       form.prepend(messageCon);
       form.reset();
@@ -40,13 +42,8 @@ async function postListing(url, object, form, arrayOfImages, addedImgCon) {
       messageCon.append(message);
       form.prepend(messageCon);
       message.classList.add('mb-0');
-      messageCon.classList.add(
-        'text-danger',
-        'text-center',
-        'semiTransparent',
-        'p-2',
-        'rounded',
-      );
+      messageCon.classList.add('apiError', 'text-white');
+      messageCon.classList.remove('apiSuccess');
     }
   } catch (error) {
     console.log(error);

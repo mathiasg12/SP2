@@ -33,12 +33,12 @@ async function regiterUser(
     let responseJson = await response.json();
     if (response.status !== 400) {
       errorCon.innerText = 'Create a free Account';
-      errorCon.classList.add('text-white');
+      errorCon.classList.remove('apiError');
       await loginUser(loginUrl, errorCon, email, password);
     } else {
       errorCon.innerText = responseJson.errors[0].message;
-      errorCon.classList.add('text-danger');
-      header.scrollIntoView({ behavior: 'smooth' });
+      errorCon.classList.add('apiError');
+      document.querySelector('html').scrollTo({ top: 0, behavior: 'smooth' });
     }
   } catch (error) {
     console.log(error);

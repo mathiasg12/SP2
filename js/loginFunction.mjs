@@ -18,8 +18,7 @@ async function loginUser(url, errorCon, email, password, header) {
     if (response.status == 200) {
       errorCon.innerText =
         'Login to start biding or signup with a Free account';
-      errorCon.classList.remove('text-danger');
-      errorCon.classList.add('text-white');
+      errorCon.classList.remove('apiError');
       if (responseJson.accessToken != undefined) {
         localStorage.setItem('BidHouseToken', responseJson.accessToken);
         localStorage.setItem('name', responseJson.name);
@@ -27,9 +26,8 @@ async function loginUser(url, errorCon, email, password, header) {
       }
     } else {
       errorCon.innerText = responseJson.errors[0].message;
-      errorCon.classList.remove('text-white');
-      errorCon.classList.add('text-danger');
-      header.scrollIntoView({ behavior: 'smooth' });
+      errorCon.classList.add('apiError');
+      document.querySelector('html').scrollTo({ top: 0, behavior: 'smooth' });
     }
   } catch (error) {
     console.log(error);

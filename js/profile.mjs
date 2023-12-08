@@ -86,6 +86,7 @@ addBtn.addEventListener('click', (click) => {
   if (imgLink.value.trim().length > 5) {
     imgLink.classList.remove('border-danger');
     imgLinkLabel.classList.remove('text-danger');
+    imgLinkLabel.classList.remove('labelDangerWhite');
     let newImage = imgLink.value.trim();
     arrayOfImages.push(newImage);
     let newImageText = document.createElement('p');
@@ -98,8 +99,16 @@ addBtn.addEventListener('click', (click) => {
     imgLink.value = '';
   } else {
     imgLinkLabel.innerText = 'Please add a valid image link(optional)';
+    imgLinkLabel.classList.add('labelDangerWhite');
     imgLink.classList.add('border-danger');
     imgLinkLabel.classList.add('text-danger');
+    imgLink.addEventListener('keyup', () => {
+      if (imgLink.value.trim().length > 5 || imgLink.value.trim().length == 0) {
+        imgLink.classList.remove('border-danger');
+        imgLinkLabel.classList.remove('text-danger');
+        imgLinkLabel.classList.remove('labelDangerWhite');
+      }
+    });
   }
 });
 /**
