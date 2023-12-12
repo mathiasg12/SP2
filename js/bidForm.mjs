@@ -1,5 +1,3 @@
-import { auctionObject } from './auctionSpecific.mjs';
-import { orderedBids } from './sortHighestBid.mjs';
 import { handleClickBid } from './handleBid.mjs';
 /**
  * function that creates a form and places it in a section, the form is meant to be used on the specific page,
@@ -13,17 +11,7 @@ function createBidForm(section) {
     let bidLabel = document.createElement('label');
     let bidInfo = document.createElement('p');
     let bidCta = document.createElement('input');
-    if (auctionObject.bids.length >= 1) {
-      let newBidArray = orderedBids(auctionObject.bids);
-      if (localStorage.getItem('name') == newBidArray[0].bidderName) {
-        bidInfo.classList.add('text-lime');
-        bidInfo.innerText = 'You are currently leading this bid round!';
-      } else {
-        bidInfo.innerText = 'Place a bid (min 1 above current price)';
-      }
-    } else {
-      bidInfo.innerText = 'Place a bid (min 1 above current price)';
-    }
+    bidInfo.innerText = 'Place a bid (min 1 above current price)';
     bidinput.type = 'number';
     bidinput.name = 'bid';
     bidLabel.innerText = 'place bid';
@@ -42,7 +30,12 @@ function createBidForm(section) {
       'text-center',
     );
     bidLabel.hidden = true;
-    bidCta.classList.add('my-3', 'ctaCustomHeight', 'rounded-pill');
+    bidCta.classList.add(
+      'my-3',
+      'ctaCustomHeight',
+      'rounded-pill',
+      'bidCtaHover',
+    );
     bidinput.classList.add('rounded', 'my-3');
     bidinput.append(bidLabel);
     bidForm.append(bidInfo, bidLabel, bidinput, bidCta);
@@ -60,7 +53,7 @@ function createBidForm(section) {
       'align-items-center',
       'my-5',
     );
-    btn.classList.add('my-2', 'ctaCustomHeight', 'rounded-pill');
+    btn.classList.add('my-2', 'ctaCustomHeight', 'rounded-pill', 'bidCtaHover');
     /**
      * eventlistener that redirects a user to login if they press the login button on auction specific page
      */

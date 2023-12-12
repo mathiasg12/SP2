@@ -28,12 +28,20 @@ function createHTMLSpecific(object, section, loader) {
   let bidHistoryContentName = document.createElement('p');
   let bidHistoryContentBid = document.createElement('p');
   let bidHistoryContentDate = document.createElement('p');
+  let youAreLeadingBid = document.createElement('p');
   let imgNr = 0;
   let ctaCon = document.createElement('div');
   let soldByCon = document.createElement('div');
   let soldByHeading = document.createElement('p');
   let soldByName = document.createElement('p');
   let soldByAvatar = document.createElement('img');
+  youAreLeadingBid.innerText = 'You are currently leading this bid round!';
+  youAreLeadingBid.classList.add('text-lime', 'mb-3', 'mb-md-0');
+  if (bids.length >= 1) {
+    if (localStorage.getItem('name') == orderedBids(bids)[0].bidderName) {
+      ctaCon.append(youAreLeadingBid);
+    }
+  }
   soldByName.innerText = seller.name;
   soldByAvatar.src = seller.avatar;
   soldByHeading.innerText = 'Seller information';
@@ -138,7 +146,7 @@ function createHTMLSpecific(object, section, loader) {
   section.append(h1, imgCon, divEndAndBids, ctaCon, bidHistoryCon);
   bidCta.id = 'placeBid';
   h1.classList.add('my-5', 'text-center', 'text-break');
-  bidHistoryCon.classList.add('container');
+  bidHistoryCon.classList.add('container', 'mb-5');
   bidHistory.classList.add('text-center', 'fs-4', 'mt-5');
   bidHistoryContent.classList.add(
     'row',
@@ -152,7 +160,7 @@ function createHTMLSpecific(object, section, loader) {
   bidHistoryContentDate.classList.add('col-4');
   totalBid.classList.add('mb-2', 'customSpacingRules');
   currentBid.classList.add('mb-2', 'fs-5', 'customSpacingRules');
-  ctaCon.classList.add('text-center', 'my-4');
+  ctaCon.classList.add('text-center', 'my-5', 'py-3');
   desc.classList.add('my-0', 'mb-3', 'text-white');
   endDate.classList.add('text-golden', 'customSpacingRules');
   img.classList.add('img-fluid');
@@ -178,7 +186,12 @@ function createHTMLSpecific(object, section, loader) {
     'align-items-center',
     'align-items-md-start',
   );
-  bidCta.classList.add('rounded-pill', 'ctaCustomHeight', 'my-4', 'my-sm-5');
+  bidCta.classList.add(
+    'rounded-pill',
+    'ctaCustomHeight',
+    'my-sm-5',
+    'bidCtaHover',
+  );
   /**
    * event listener that runs when a a user clicks on a item with the id of placeBid it will then make a bid form, if the button is pressed
    * on the users own post the button is diabled and the user gets a message

@@ -120,7 +120,9 @@ cta:active,
 .formBtn:hover,
 .formBtn:active,
 .avatarBtn:hover,
-.avatarBtn:active {
+.avatarBtn:active,
+.bidCtaHover:hover,
+bidCtaHover:active {
   color: white !important;
   background-color: black !important;
   border: white solid 2px;
