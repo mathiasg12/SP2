@@ -10,15 +10,42 @@ import { improvedTimeFormat } from './timeFormat.mjs';
 async function getUserBids(con) {
   let user = await getProfilInfo(con);
   let { name } = user;
-  let bids = await getOwnAuctions(PROFILE_URL + name + '/bids', con);
+  let bids = await getOwnAuctions(
+    PROFILE_URL + name + '/bids?_listings=true',
+    con,
+  );
   if (bids.length >= 1) {
     document.querySelector('.loaderHistory').classList.add('d-none');
     bids.forEach((bid) => {
       let div = document.createElement('div');
-      let { amount, created } = bid;
+      let { amount, created, listing } = bid;
+      let imgCon = document.createElement('div');
+      let img = document.createElement('img');
+      img.src = listing.media;
+      img.addEventListener('error', () => {
+        img.src = './pictures/error.jpg';
+      });
+      img.alt = 'auction picture';
+      /**
+       * small function that limits the title to 14 characters so a auction cant have a 280 character title, it also adds a "no title" to the card if the object dont have a title
+       * @param {string} title
+       */
+      function adjustTitle(title) {
+        if (title != '') {
+          if (title.length >= 14) {
+            return title.slice(0, 14) + '...';
+          } else {
+            return title;
+          }
+        } else {
+          return 'no title';
+        }
+      }
       let amountAndDateCon = document.createElement('div');
       let bidAmount = document.createElement('p');
       let bidDate = document.createElement('p');
+      let title = document.createElement('p');
+      title.innerText = adjustTitle(listing.title);
       div.classList.add(
         'bg-white',
         'text-black',
@@ -29,15 +56,32 @@ async function getUserBids(con) {
         'text-decoration-none',
         'my-3',
         'customWidthBid',
+        'row',
       );
-      bidAmount.classList.add('mx-4', 'text-darkGreen', 'mb-0');
-      bidDate.classList.add('mx-4', 'mb-0');
-      amountAndDateCon.classList.add('d-flex', 'amountAndDateCon');
+      imgCon.classList.add(
+        'col-sm-6',
+        'col-12',
+        'd-flex',
+        'justify-content-center',
+        'mb-2',
+      );
+      img.classList.add('img-fluid', 'bidImg', 'border', 'border-black');
+      bidAmount.classList.add('mx-auto', 'text-darkGreen', 'mb-1');
+      bidDate.classList.add('mx-auto', 'mb-1', 'text-center');
+      title.classList.add('mx-auto', 'mb-1', 'fs-4');
+      amountAndDateCon.classList.add(
+        'd-flex',
+        'flex-column',
+        'col-sm-6',
+        'col-12',
+        'align-items-center',
+        'align-items-sm-start',
+      );
       bidAmount.innerText = amount + ' ' + 'Credits';
-      bidDate.innerText = improvedTimeFormat(created);
-      div.append(amountAndDateCon);
-      amountAndDateCon.append(bidDate);
-      amountAndDateCon.append(bidAmount);
+      bidDate.innerText = 'Bid made:' + ' ' + improvedTimeFormat(created);
+      imgCon.append(img);
+      div.append(imgCon, amountAndDateCon);
+      amountAndDateCon.append(title, bidDate, bidAmount);
       con.append(div);
     });
   } else {

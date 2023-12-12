@@ -1,10 +1,12 @@
 import { searchForAuction } from './searchFunctionality.mjs';
 import { getAllAuctions } from './getAuctions.mjs';
 import { createHTMLFromObject } from './auctionCard.mjs';
+import { sortArray } from './sortByEndingSoon.mjs';
 /**
  * eventlistener that runs if the search symbol is pressed it then uses getAllAuctions to create an array with all Auctions and then uses the searchForAuction to search for matches
  * between the search input and the title or the descriptions of an auction, if no matches is found the user recives a message if there are matches they are displayed on the page,
  * the function also adds a class to the search symbol making it unclickable while loading so a user cant spam click search until the page breaks and the user is blocked from the api
+ * the function also handles sort functionality to searched iteams
  * @param {string} con section where objects are displayed
  * @param {string} loader loadig symbol
  * @param {string} searchInput search value from user input
@@ -21,7 +23,7 @@ async function handleSearchClick(
   url,
 ) {
   searchKey.classList.add('unClickAble');
-  con.innerHTML = '';
+  con.innerText = '';
   searchInput.disabled = true;
   if (searchInput.value.toLowerCase().trim().length < 1) {
     location.reload();
@@ -41,6 +43,18 @@ async function handleSearchClick(
     } else {
       if (sort.value === 'newest') {
         arraySearchedAuctions.forEach((auctions) => {
+          p.innerText = `${
+            arraySearchedAuctions.length
+          } matches for your search: ${searchInput.value.toLowerCase().trim()}`;
+          createHTMLFromObject(auctions, con);
+          loader.classList.add('d-none');
+          moreBtn.disabled = 'true';
+          searchInput.disabled = false;
+          searchKey.classList.remove('unClickAble');
+        });
+      } else if (sort.value === 'endsAt') {
+        let endsAtArray = sortArray(arraySearchedAuctions);
+        endsAtArray.forEach((auctions) => {
           p.innerText = `${
             arraySearchedAuctions.length
           } matches for your search: ${searchInput.value.toLowerCase().trim()}`;
