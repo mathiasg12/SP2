@@ -61,26 +61,37 @@ input {
 .auctionCard {
   width: 220px !important;
   height: 430px !important;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+  transition: transform 0.4s ease-in-out;
   img {
     height: 200px;
   }
-  &:hover {
-    box-shadow: 0 0 25px rgba(0, 0, 0, 1);
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: 0 0 30px #424242 !important;
+    opacity: 0.7;
+    transform: translateY(-10px);
   }
 }
 .ctaCustomHeight {
   height: 44px;
   width: 140px;
 }
+.submitWidth {
+  width: 140px !important;
+  height: 34px;
+}
 .customSpacingRules {
   max-width: fit-content !important;
 }
 .nav-link:hover,
-.nav-link:active {
+.nav-link:active,
+.nav-link:focus {
   background-color: white;
   border-radius: 15%;
   color: black !important;
-  transition: 0.7s ease-in-out 0.5s;
+  transition: 0.7s ease-in-out 0.3s;
 }
 #logOutHeader {
   cursor: pointer;
@@ -90,7 +101,8 @@ button,
   width: 140px !important;
 }
 .footer-item:hover,
-.footer-item:active {
+.footer-item:active,
+.footer-item:focus {
   color: #7e95fc !important;
 }
 .unClickAble {
@@ -102,30 +114,39 @@ button,
 }
 .cta:hover,
 cta:active,
+.cta:focus,
 .submit:hover,
 .submit:active,
+.submit:focus,
 .logOutBtn:hover,
 .logOutBtn:active,
+.logOutBtn:focus,
 .changeAvatarBtn:hover,
 .changeAvatarBtn:active,
+.changeAvatarBtn:focus,
 .formBtn:hover,
 .formBtn:active,
+.formBtn:focus,
 .avatarBtn:hover,
 .avatarBtn:active,
+.avatarBtn:focus,
 .bidCtaHover:hover,
-bidCtaHover:active {
+.bidCtaHover:active,
+.bidCtaHover:focus {
   color: white !important;
   background-color: black !important;
   border: white solid 2px;
 }
 .listingCta:hover,
-.listingCta:active {
+.listingCta:active,
+.listingCta:focus {
   color: black !important;
   background-color: white !important;
   border: black solid 2px;
 }
 .addedImage:hover,
-.addedImage:active {
+.addedImage:active,
+.addedImage:focus {
   color: #ff0000 !important;
   cursor: pointer;
 }
@@ -172,7 +193,8 @@ bidCtaHover:active {
 .addImageCon {
   max-width: 200px !important;
 }
-.loader {
+.loader,
+.loaderListingForm {
   width: 120px !important;
   border: 5px solid;
   border-color: black transparent black transparent;
@@ -190,8 +212,10 @@ bidCtaHover:active {
 }
 .fa-arrow-right:hover,
 .fa-arrow-left:hover,
+.fa-arrow-left:focus,
 .fa-arrow-right:active,
-.fa-arrow-left:active {
+.fa-arrow-left:active,
+.fa-arrow-left:focus {
   color: white;
   background-color: rgba($color: #000000, $alpha: 0.4);
 }
@@ -216,6 +240,29 @@ bidCtaHover:active {
   input,
   textarea {
     border-width: 1px;
+  }
+}
+.ownAuctionCard {
+  width: 220px !important;
+  height: 430px !important;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+  img {
+    height: 180px;
+  }
+  .clickAbleSection {
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 0.7;
+    }
+  }
+  .deletebtn {
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: white !important;
+      color: black !important;
+    }
   }
 }
 .bidImg {
@@ -245,7 +292,9 @@ bidCtaHover:active {
 .soldByCon {
   max-width: fit-content !important;
   img {
-    max-width: 100px !important;
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: cover;
   }
 }
 .divEndAndBids {
@@ -297,6 +346,9 @@ bidCtaHover:active {
   }
 }
 @media only screen and (max-width: 330px) {
+  #bidHouseLogo {
+    max-width: 100px;
+  }
   .recently-container,
   .endingSoon-container {
     max-width: 70%;

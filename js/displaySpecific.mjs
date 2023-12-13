@@ -71,7 +71,7 @@ function createHTMLSpecific(object, section, loader) {
     'text-center',
   );
   soldByHeading.classList.add('fs-5', 'mb-4');
-  soldByName.classList.add('my-2');
+  soldByName.classList.add('mt-3');
   loader.classList.add('d-none');
   bidHistoryContentName.innerText = 'Name';
   bidHistoryContentBid.innerText = 'Bid';

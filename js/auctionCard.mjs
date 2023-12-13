@@ -73,3 +73,4 @@ function createHTMLFromObject(object, section) {
   divBid.classList.add('insideBorders', 'w-100');
 }
 export { createHTMLFromObject };
+export { adjustTitle };

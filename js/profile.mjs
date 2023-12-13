@@ -6,7 +6,7 @@ import { updateAvatar } from './updateAvatar.mjs';
 import { PROFILE_URL } from './variables.mjs';
 import { handleListingClick } from './handleListingClick.mjs';
 import { displayFromOwnAuctions } from './displayUserOwnAuctions.mjs';
-import { createHTMLFromObject } from './auctionCard.mjs';
+import { createHTMLOwnAuctions } from './ownAuctionCard.mjs';
 import { getUserBids } from './getUserBid.mjs';
 const logOutBtn = document.querySelector('.logOutBtn ');
 const name = document.getElementById('name');
@@ -40,8 +40,9 @@ logOutBtn.addEventListener('click', () => {
 });
 dispalyUserInfo(name, email, credit, avatar, profileSection);
 displayFromOwnAuctions(
-  PROFILE_URL + `${localStorage.getItem('name')}/listings?_bids=true`,
-  createHTMLFromObject,
+  PROFILE_URL +
+    `${localStorage.getItem('name')}/listings?_bids=true&_seller=true`,
+  createHTMLOwnAuctions,
   ownAuctionsCon,
 );
 getUserBids(bidsMadeCon);

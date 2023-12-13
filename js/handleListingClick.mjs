@@ -3,7 +3,7 @@ import { convertToIso, improvedTimeFormat } from './timeFormat.mjs';
 import { createListingObject } from './createListingObject.mjs';
 import { AUCTION_URL, PROFILE_URL } from './variables.mjs';
 import { postListing } from './postListing.mjs';
-import { createHTMLFromObject } from './auctionCard.mjs';
+import { createHTMLOwnAuctions } from './ownAuctionCard.mjs';
 import { displayFromOwnAuctions } from './displayUserOwnAuctions.mjs';
 /**
  * function that handles the click event when a user clicks create listing. the function uses validation functions that checks the user input,
@@ -38,6 +38,8 @@ async function handleListingClick(
     checkLength(desc, 5, 'Description', descLabel, 'text-black') === true &&
     dateRegex(endDate, 'End Date', endDateLabel, 'DD/MM/YYYY') == true
   ) {
+    document.querySelector('.loaderListingForm ').classList.add('d-flex');
+    document.querySelector('.loaderListingForm ').classList.remove('d-none');
     await postListing(
       AUCTION_URL,
       createListingObject(
@@ -52,8 +54,9 @@ async function handleListingClick(
     );
     myAuctionCon.innerText = ' ';
     await displayFromOwnAuctions(
-      PROFILE_URL + `${localStorage.getItem('name')}/listings?_bids=true`,
-      createHTMLFromObject,
+      PROFILE_URL +
+        `${localStorage.getItem('name')}/listings?_bids=true&_seller=true`,
+      createHTMLOwnAuctions,
       myAuctionCon,
     );
   } else {

@@ -22,6 +22,8 @@ async function postListing(url, object, form, arrayOfImages, addedImgCon) {
     let sendListing = await fetch(url, listing);
     let response = await sendListing.json();
     if (sendListing.ok) {
+      document.querySelector('.loaderListingForm ').classList.remove('d-flex');
+      document.querySelector('.loaderListingForm ').classList.add('d-none');
       messageCon.append(message);
       message.classList.add('fs-4', 'text-center');
       messageCon.classList.add('apiSuccess');
@@ -35,6 +37,8 @@ async function postListing(url, object, form, arrayOfImages, addedImgCon) {
         addedImgCon.removeChild(allPElements[i]);
       }
     } else {
+      document.querySelector('.loaderListingForm ').classList.remove('d-flex');
+      document.querySelector('.loaderListingForm ').classList.add('d-none');
       message.innerText =
         'something went wrong please try again later:' +
         ' ' +
@@ -47,6 +51,8 @@ async function postListing(url, object, form, arrayOfImages, addedImgCon) {
     }
   } catch (error) {
     console.log(error);
+    document.querySelector('.loaderListingForm ').classList.remove('d-flex');
+    document.querySelector('.loaderListingForm ').classList.add('d-none');
     message.innerText = `something went wrong please try again later ${error}`;
     messageCon.append(message);
     form.prepend(messageCon);
