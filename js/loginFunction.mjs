@@ -31,7 +31,7 @@ async function loginUser(url, errorCon, email, password, header) {
     }
   } catch (error) {
     console.log(error);
-    errorCon.innerText = responseJson.errors[0].message;
+    errorCon.innerText = `Sorry something went wrong: ${error}`;
     errorCon.classList.add('apiError');
     document.querySelector('html').scrollTo({ top: 0, behavior: 'smooth' });
   }

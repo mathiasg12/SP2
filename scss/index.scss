@@ -242,6 +242,15 @@ cta:active,
     border-width: 1px;
   }
 }
+#deleteModal {
+  max-width: 400px;
+}
+.deleteModal {
+  position: relative;
+  width: 220px !important;
+  top: -60%;
+  z-index: 2;
+}
 .ownAuctionCard {
   width: 220px !important;
   height: 430px !important;

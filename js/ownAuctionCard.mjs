@@ -81,6 +81,8 @@ function createHTMLOwnAuctions(object, section) {
       'rounded-pill',
       'deletebtn',
     );
+    deleteBtn.id = 'deleteBtn';
+    deleteBtn.setAttribute('deleteId', `${id}`);
     if (checkIfAuctionIsSold(object) === true) {
       card.append(deleteBtn);
     } else {

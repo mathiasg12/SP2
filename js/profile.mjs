@@ -3,11 +3,13 @@ import { dispalyUserInfo } from './dispalyUserInfo.mjs';
 import { getProfilInfo } from './getProfile.mjs';
 import { createUpdateSection } from './updateAvatarSection.mjs';
 import { updateAvatar } from './updateAvatar.mjs';
-import { PROFILE_URL } from './variables.mjs';
+import { AUCTION_URL, PROFILE_URL } from './variables.mjs';
 import { handleListingClick } from './handleListingClick.mjs';
 import { displayFromOwnAuctions } from './displayUserOwnAuctions.mjs';
 import { createHTMLOwnAuctions } from './ownAuctionCard.mjs';
 import { getUserBids } from './getUserBid.mjs';
+import { deleteConfirme } from './DeleteFunctions.mjs';
+import { deleteAuction } from './DeleteFunctions.mjs';
 const logOutBtn = document.querySelector('.logOutBtn ');
 const name = document.getElementById('name');
 const email = document.getElementById('email');
@@ -30,6 +32,7 @@ const form = document.querySelector('.listingForm');
 const ownAuctionsCon = document.querySelector('.myAuctionsCon');
 const bidsMadeCon = document.querySelector('.myBidsCon');
 const profileSection = document.querySelector('.profileSection');
+const errorOrSuccessCon = document.querySelector('.errorOrSuccess');
 imgLabelCon;
 let arrayOfImages = [];
 /**
@@ -160,5 +163,48 @@ window.addEventListener('click', (click) => {
 form.addEventListener('keydown', () => {
   if (document.getElementById('messageCon') !== null) {
     form.removeChild(document.getElementById('messageCon'));
+  }
+});
+/**
+ * eventlistener that listen to a click event if the element clicked has a attribute called deleteId that has the same value as the id of the target auction,
+ * it then calls a function which makes a confirmation modal and if the user clicks the cancel button the modal closes and if they click the delete button the
+ * function calls the deleteAuction function which sends an delete request to the api and the auction is deleted, id something goes wrong the user gets a message.
+ */
+window.addEventListener('click', (click) => {
+  if (click.target.id === 'deleteBtn') {
+    let deleteId = click.target.getAttribute('deleteId');
+    let deleteBtn = document.querySelector(`[deleteId="${deleteId}"]`);
+    deleteBtn.classList.add('d-none');
+    let parentNode = deleteBtn.parentElement;
+    deleteConfirme(parentNode);
+    /**
+     * this function handles the innerClick of the modal and is there to prevent that the auctions is duplicated, the function checks of the click belongs to the cancel button or the
+     * delete button and removes the event if one of them is clicked to prevent duplication
+     * @param {input} click
+     */
+    async function innerClick(click) {
+      if (click.target.id === 'cancelDeletion') {
+        window.removeEventListener('click', innerClick);
+        let deleteModal = document.querySelector('.deleteModal');
+        parentNode.removeChild(deleteModal);
+        deleteBtn.classList.remove('d-none');
+      } else if (click.target.id === 'deleteConfirme') {
+        window.removeEventListener('click', innerClick);
+        listingCta.scrollIntoView({ behavior: 'smooth' });
+        await deleteAuction(
+          AUCTION_URL + `/${deleteId}`,
+          ownAuctionsCon,
+          errorOrSuccessCon,
+        );
+        document.querySelector('.loaderMyAuction').classList.remove('d-none');
+        await displayFromOwnAuctions(
+          PROFILE_URL +
+            `${localStorage.getItem('name')}/listings?_bids=true&_seller=true`,
+          createHTMLOwnAuctions,
+          ownAuctionsCon,
+        );
+      }
+    }
+    window.addEventListener('click', innerClick);
   }
 });
