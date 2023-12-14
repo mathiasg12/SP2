@@ -90,6 +90,9 @@ function createHTMLSpecific(object, section, loader) {
   bidHistory.innerText = 'Bid History';
   currentBid.innerText = getLeadingBid(bids);
   h1.innerText = title;
+  if (title.length < 1) {
+    h1.innerText = 'No Title';
+  }
   bidCta.innerText = 'Bid now';
   desc.innerText = description;
   endDate.innerText = `Ends at: ${newEndsAt}`;
@@ -114,6 +117,7 @@ function createHTMLSpecific(object, section, loader) {
     for (let i = 0; i < media.length; i++) {
       let allImg = document.createElement('img');
       allImg.src = media[i];
+      allImg.alt = 'auction image';
       allImgCon.append(allImg);
       allImgCon.append(arrow);
       imgCon.append(allImgCon);
