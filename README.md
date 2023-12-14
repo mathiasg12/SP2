@@ -4,13 +4,13 @@
 
 ## Description
 
-This is a wbsite built for a fictional auction site called Bid house and is a school project. the site is responsive and is built with a mobile first approached, the site is responsive down to at least 280px width. the website consists of six pages, the landing page, sign up page, login page ,profile page ,auction page and the auction specific page. the header has a logo and navigation elements. the header for mobile has a hamburger menu and for desktop it is links. the header changes depending if the user is logged in or not, if a user is logged in the navigation elements consist of links to the auction page, profile page, logout and credit, if they are not logged in the header elements consist of login,signup,auction and profile. if a user try to go to profile while not logged in the site will redirect them to the login page
+This is a website built for a fictional auction site called Bid house and is a school project. The site is responsive and is built with a mobile first approach, the site is responsive down to at least 280px width. The website consists of six pages, the landing page, sign-up page, login page, profile page, auction page, and the auction-specific page. The header has a logo and navigation elements. The header for mobile has a hamburger menu and for desktop it is links. the header changes depending on whether the user is logged in or not, if a user is logged in the navigation elements consist of links to the auction page, profile page, logout, and credit, if they are not logged in the header elements consist of login, signup, auction and profile. if a user tries to go to their profile while not logged in the site will redirect them to the login page
 
-the user first access the landing page here the user can look thru recently added auctions and auctions that is ending soon, the two section are carousels and displays 1 post for mobile and two for desktop, the last section on the landing page includes some information and a CTA button that directs to the auction page. The auction page consists of a search bar, a sort tab and the auction section, the search bar gets all auction and stores them in an array and then searches thru the array to look for matches, the user can search for both titles and descriptions, the sort functionality sorts auction eighter from newest to oldest or oldest to newest. the auction section uses JS to display auctions from the api and fetches 20 auction at the time, if a user presses the more button the next 20 auctions are displayed under the first 20. if a user clicks on a auction they are directed to the auction specific page, here the user can look thru the aviable pictures, read the description and view a bid history, if a user clicks the bid now CTA a input field will appear and the user can bid on the auction, if the user try to bid on their own item they will recive a message telling them that they can not do that. the bid input is validated with js so a user can not bid under the current leading bid and they can not bid more than their credit if they try they will recive an error message. The website has a login page and a signup page which works and looks almost the same the main difference is the amount of input fields and that the signup page form register a user to the api while the login form logs an existing user in, when a user is logged in the access token and name is stored in local storage so the user can use functionality only authorized requests can execute, request such as bid on items and create listings. all form inputs on both login page and signup page is validated with js except the avatar url input because this input field is optional, and the user will get an error message if one or more of these validations fail. the profile page has four section, the first section is where user information is displayed and the user can change their avatar. the next section is a form where users can create a listing that sends an auction object to the API, the next section is where users listings is displayed and the last section is a users bid history.
+the user first access the landing page here the user can look through recently added auctions and auctions that are ending soon, the two sections are carousels and display 1 post for mobile and two for desktop, the last section on the landing page includes some information and a CTA button that directs to the auction page. The auction page consists of a search bar, a sorting tab, and the auction section, the search bar gets all auctions and stores them in an array, and then searches through the array to look for matches, the user can search for both titles and descriptions, the sort functionality sorts auction eighter from newest to oldest or oldest to newest. The auction section uses JS to display auctions from the API and fetches 20 auctions at a time, if a user presses the more button the next 20 auctions are displayed under the first 20. if a user clicks on an auction they are directed to the auction-specific page, here the user can look thru the aviable pictures, read the description, and view a bid history, if a user clicks the bid now CTA the input field will appear and the user can bid on the auction, if the user try to bid on their item they will receive a message telling them that they cannot do that. The bid input is validated with JS so a user cannot bid under the current leading bid, and they cannot bid more than their credit if they try, they will receive an error message. The website has a login page and a signup page which work and look almost the same the main difference is the number of input fields and that the signup page form registers a user to the Api while the login form logs an existing user in when a user is logged in the access token and the name is stored in local storage so the user can use functionality only authorized requests can execute, request such as bid on items and create listings. all form inputs on both login page and signup page are validated with JS except the avatar URL input because this input field is optional, and the user will get an error message if one or more of these validations fail. The profile page has four sections, the first section is where user information is displayed, and the user can change their avatar. The next section is a form where users can create a listing that sends an auction object to the API, the next section is where the user's listings are displayed, and the last section is a user's bid history.
 
 ### Lading page:
 
-the landing page has a welcome heading and three sections, recently added where the 12 newest auctions are displayed in a carousel made with js, the next section is ending soon and is the same as recently added only that the 12 auctions that is ending first are displayed. the last section is the discover section and has a little bit of information and a CTA leading to the auction page
+the landing page has a welcome heading and three sections, recently added where the 12 newest auctions are displayed in a carousel made with JS, the next section is ending soon and is the same as recently added only that the 12 auctions that are ending first are displayed. The last section is the Discover section which has a little bit of information and a CTA leading to the auction page.
 
 ### Auction page:
 
@@ -35,13 +35,14 @@ The auction specific is where the user is directed when a user clicks on an auct
 
 ### Design
 
-- colors: the primary colors used is black(#000000) and white(#FFFFFF), secondary colors include a golden color(#d0a933) for some text that i wanted to stick out and the logo, a lighter golden(#fceb72) for some text that is close to the other golden color, a light green color(#14ff00) used for success messages and for displaying credit on profile page, gray(#e0e0e0) for search bar and sort, red(#ff0000) for error message and dark green(#2d7e26) for success message where white is background and the light green color do not have high enough contrast.
-- grid: the website uses both flex and bootstrap grid system, most of the pages uses bootstrap grid system for the main layout and the smaller sections eighter uses bootstrap or flex depending on what makes sense it that situation, the grid system is often single collumn for mobile and two column and up depending on the screen width for desktop, on the index page the carousel has single collumn layout for mobile and two column layout for desktop, on the auction site the auction section is using bootstrap container and row but the div that holds the auctions itself is using flex and adds collumns if the screen size allows it
-- fonts: I used a font called Isodora for logo, Bemirs for headings and poppins for text
-- margins: I use bootstrap pre chosen margin system but needed to add some larger margins, so alot of sections and components follow the m1-m5 bootstrap margins this is mainly done to repeat the same styles on the different components, sections often uses m5 or around 48px top and bottom
+- colors: the primary colors used are black(#000000) and white(#FFFFFF), secondary colors include a golden color(#d0a933) for some text that I wanted to stick out, and the logo, a lighter golden(#fceb72) for some text that is close to the other golden color, a light green color(#14ff00) used for success messages and for displaying credit on profile page, gray(#e0e0e0) for search bar and sort, red(#ff0000) for the error message and dark green(#2d7e26) for success message where white is background and the light green color do not have high enough contrast.
+- grid: the website uses both flex and bootstrap grid system, most of the pages uses bootstrap grid system for the main layout, and the smaller sections either uses bootstrap or flex depending on what makes sense in that situation, the grid system is often single column for mobile and two column and up depending on the screen width for desktop, on the index page the carousel has single column layout for mobile and two column layout for desktop, on the auction site the auction section is using bootstrap container and row but the div that holds the auctions itself is using flex and adds columns if the screen size allows it
+- fonts: I used a font called Isodora for the logo, Bemirs for headings, and poppins for the text
+- margins: I use bootstrap pre-chosen margin system but needed to add some larger margins, so a lot of sections and components follow the m1-m5 bootstrap margins this is mainly done to repeat the same styles on the different components, sections often use m5 or around 48px top and bottom
 
 ### Functionality
 
+- if a user that is not logged in goes to the profile page they are automatically re directed to login
 - carousel made with js
 - get requests to fetch Auctions from the API
 - registered users can log in
@@ -63,6 +64,7 @@ The auction specific is where the user is directed when a user clicks on an auct
 - users may see their own bid history
 - login form
 - signup form
+- users can delete their own posts on the ptofile page
 
 ## Built With
 
@@ -78,16 +80,18 @@ The auction specific is where the user is directed when a user clicks on an auct
 
 - a code editor
 - Node.js version 20.9.0 or later is recomended
+- npm(Node Package Manager)
 
 ##### for users:
 
 - a web browser
 
-### Installation
+### Installation(for development locally)
 
-- download the repository from github
+- clone the repository from github
 - open the repository in a code editor
 - install bootstrap version 5.3.2 if needed
+- open with live server extension
 
 ### Running
 
