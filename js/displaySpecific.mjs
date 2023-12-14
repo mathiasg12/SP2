@@ -10,7 +10,6 @@ import { orderedBids } from './sortHighestBid.mjs';
  */
 function createHTMLSpecific(object, section, loader) {
   let { description, endsAt, media, title, bids, seller } = object;
-  console.log(object);
   let newBidsArray = orderedBids(bids);
   let divEndAndBids = document.createElement('div');
   let h1 = document.createElement('h1');
