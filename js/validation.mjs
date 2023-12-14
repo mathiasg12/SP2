@@ -89,7 +89,7 @@ function regexCheck(input, type, label, rightFormat) {
   }
 }
 /**
- * function that checks if a date format follows a pre determined format
+ * function that checks if a date format follows a pre determined format,the function also adds or removes classes and text based on the outcome.
  * @param {string} input
  * @param {string} type
  * @param {string} label

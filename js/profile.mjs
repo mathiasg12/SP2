@@ -142,7 +142,7 @@ listingCta.addEventListener('click', (click) => {
   );
 });
 /**
- * event listener that runs if a user clicks a picture link in the form, it then targets the id of the clicked iteam and finds which index
+ * event listener that runs if a user clicks a picture link in the form, it then targets the id of the clicked item and finds which index
  * that item is in the image array, it then removes it
  */
 window.addEventListener('click', (click) => {
@@ -168,7 +168,7 @@ form.addEventListener('keydown', () => {
 /**
  * eventlistener that listen to a click event if the element clicked has a attribute called deleteId that has the same value as the id of the target auction,
  * it then calls a function which makes a confirmation modal and if the user clicks the cancel button the modal closes and if they click the delete button the
- * function calls the deleteAuction function which sends an delete request to the api and the auction is deleted, id something goes wrong the user gets a message.
+ * function calls the deleteAuction function which sends an delete request to the api and the auction is deleted, if something goes wrong the user gets a message.
  */
 window.addEventListener('click', (click) => {
   if (click.target.id === 'deleteBtn') {

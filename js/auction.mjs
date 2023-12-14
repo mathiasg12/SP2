@@ -57,8 +57,8 @@ searchKey.addEventListener('click', () => {
   searched = true;
 });
 /**
- * event listener that runs when select value changes and displays the results in acsending order if the value is "oldest" and reload the page if the value is "newest",
- * the function behaves differetly if sorting search results and will then reverse the search array if the value is "oldest"
+ * event listener that runs when select value changes and displays the results in acsending order if the value is "oldest" and reload the page if the value is "newest" if the value is
+ * endsAt the function will sort after the endsAt property ,the function behaves differetly if sorting search results and will then use another function
  */
 sort.addEventListener('change', () => {
   if (searched === false) {

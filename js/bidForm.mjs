@@ -66,7 +66,7 @@ function createBidForm(section) {
 }
 export { createBidForm };
 /**
- * eventlisener that runs the  handleClickBid(click) function if a user clicks the bid button
+ * eventlisener that runs the handleClickBid(click) function if a user clicks the bid button
  */
 window.addEventListener('click', (click) => {
   handleClickBid(click);

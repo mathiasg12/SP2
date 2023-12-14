@@ -1,5 +1,5 @@
 /**
- * a functionn that gets an array of objects from the api and returns it
+ * a function that gets an array of objects from the api and returns it
  * @param {string} url
  * @returns an array of objects
  */
@@ -21,7 +21,7 @@ async function getAuctions(url) {
   }
 }
 /**
- * a get function that loops thru the array and puts all auctions in an new array it then flaten the array of arrays to a array of objects
+ * a get function that loops thru the array and puts all auctions in an new array it then flaten the array of arrays to an array of objects
  * @param {string} url
  * @returns flat array with all auctions in the api
  */

@@ -10,6 +10,7 @@ $myMargins: (
   7: 120px,
   8: 250px,
 );
+/*general*/
 body {
   min-height: 100%;
   header {
@@ -309,12 +310,13 @@ cta:active,
 .divEndAndBids {
   max-width: 350px !important;
 }
-
 @media only screen and (min-width: 769px) {
+  /*general*/
   #bidHouseLogo {
     max-height: 100px;
     min-width: 160px;
   }
+  /*login/signup page*/
   .loginForm {
     border-radius: 0 0.375rem 0.375rem 0;
   }
@@ -340,9 +342,11 @@ cta:active,
   }
 }
 @media only screen and (max-width: 767px) {
+  /*general*/
   #hiddenMenu {
     background-color: white;
   }
+  /*login/signup page*/
   .loginForm {
     border-radius: 0.375rem;
   }
@@ -355,9 +359,11 @@ cta:active,
   }
 }
 @media only screen and (max-width: 330px) {
+  /*general*/
   #bidHouseLogo {
     max-width: 100px;
   }
+  /*landing page*/
   .recently-container,
   .endingSoon-container {
     max-width: 70%;

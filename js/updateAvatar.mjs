@@ -29,7 +29,7 @@ async function updateAvatar(url, link, errorText, input) {
       input.classList.add('border-danger');
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
     errorText.classList.add('apiError');
     errorText.classList.remove('text-danger');
     errorText.innerText = 'sorry something went wrong, try agian later';

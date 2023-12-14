@@ -6,7 +6,8 @@ import { sortArray } from './sortByEndingSoon.mjs';
  * eventlistener that runs if the search symbol is pressed it then uses getAllAuctions to create an array with all Auctions and then uses the searchForAuction to search for matches
  * between the search input and the title or the descriptions of an auction, if no matches is found the user recives a message if there are matches they are displayed on the page,
  * the function also adds a class to the search symbol making it unclickable while loading so a user cant spam click search until the page breaks and the user is blocked from the api
- * the function also handles sort functionality to searched iteams
+ * the function also handles sort functionality to searched items it will then reverse the array if the sort is set to oldest first and if the sort value is endsAt it will run the function
+ * sortArray that will sort the auctions from the auction that is ending soonest to the one that is ending latest
  * @param {string} con section where objects are displayed
  * @param {string} loader loadig symbol
  * @param {string} searchInput search value from user input

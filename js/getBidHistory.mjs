@@ -1,6 +1,6 @@
 import { improvedTimeFormat } from './timeFormat.mjs';
 /**
- * function that takes an array of bids and loopes them and then displays each bid in a container, takes two parameters bids and con, bids is the array of bids and con is the container
+ * function that takes an array of bids and loopes them, and then displays each bid in a container, takes two parameters bids and con, bids is the array of bids and con is the container
  * @param {Array} bids
  * @param {string} con
  */

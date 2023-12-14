@@ -1,6 +1,6 @@
 /**
- * function that uses a users input to send a request to the api if the credentials matches the api sends back a respose the fuction then stores the accessToken in local storage,
- * if the api declines the request the fuction displays ann error message to the user
+ * function that uses a users input to send a request to the api if the credentials matches the api sends back a respose, the function then stores the accessToken in local storage,
+ * if the api declines the request the fuction displays an error message to the user
  * @param {string} url
  * @param {string} errorCon
  * @param {string} email

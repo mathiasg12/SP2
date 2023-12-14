@@ -1,6 +1,6 @@
 import { getOwnAuctions } from './getUserListings.mjs';
 /**
- * async function that gets all auction from a user if thre are any and calls a function that creats HTML, if thre are not any listings it will display a message
+ * async function that gets all auction from a user if thre are any and calls a function that creates HTML, if thre are not any listings it will display a message
  * @param {string} url
  * @param {function} HtmlFunction
  * @param {string} section

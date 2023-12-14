@@ -1,5 +1,5 @@
 /**
- * function that creates a confirme deletion modal so the user cant delete auction if they didnt want to, the modal has info text
+ * function that creates a confirme deletion modal so the user cant delete auction if they didnt want to, the modal has info text,
  * a cancel button and a delete confirme button
  * @param {string} con
  */
@@ -26,6 +26,12 @@ function deleteConfirme(con) {
   buttonContainer.append(deleteInfo, confirmeBtn, cancelBtn);
   con.append(buttonContainer);
 }
+/**
+ * async funnction that sends a DELETE request to the api if successful the auction is deleted else the function will display a message that something went wrong
+ * @param {string} url
+ * @param {string} con
+ * @param {string} errorOrSuccessCon
+ */
 async function deleteAuction(url, con, errorOrSuccessCon) {
   try {
     let token = localStorage.getItem('BidHouseToken');
