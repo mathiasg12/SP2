@@ -41,6 +41,7 @@ async function handleSearchClick(
         .trim()}`;
       loader.classList.add('d-none');
       searchInput.disabled = false;
+      searchKey.classList.remove('unClickAble');
     } else {
       if (sort.value === 'newest') {
         arraySearchedAuctions.forEach((auctions) => {
