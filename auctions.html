@@ -67,13 +67,13 @@
               <a
                 href="auctions.html"
                 class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
-                >Auction</a
+                >Auctions</a
               >
             </li>
             <li class="nav-item h5">
               <a
                 href="profile.html"
-                class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1"
+                class="nav-link text-white my-1 mx-4 my-md-0 text-decoration-underline p-1 profileHide d-none"
                 >Profile</a
               >
             </li>
@@ -141,24 +141,40 @@
         </div>
       </section>
     </main>
-    <footer class="bg-black pb-3 mt-7 bottom-0">
+    <footer class="bg-black my-0 mt-7 bottom-0">
       <script src="js/index.mjs" type="module"></script>
       <script src="js/auction.mjs" type="module"></script>
-      <ul class="list-unstyled d-flex flex-column bg-black w-35 py-2">
-        <li class="fs-5 my-2">
-          <a href="auctions.html" class="text-white mx-4 footer-item"
-            >Auction</a
-          >
-        </li>
-        <li class="fs-5 my-2">
-          <a href="profile.html" class="text-white mx-4 footer-item">Profile</a>
-        </li>
-        <li class="fs-5 my-2">
-          <a href="profile.html" class="text-white mx-4 footer-item"
-            >Sell an Item</a
-          >
-        </li>
-      </ul>
+      <div class="d-flex flex-column flex-md-row">
+        <ul class="list-unstyled d-flex flex-column bg-black w-35 py-2">
+          <li class="fs-5 my-2">
+            <a href="auctions.html" class="text-white mx-4 footer-item"
+              >Auctions</a
+            >
+          </li>
+          <li class="fs-5 my-2">
+            <a
+              href="profile.html"
+              class="text-white mx-4 footer-item profileHideFooter d-none"
+              >Profile</a
+            >
+          </li>
+          <li class="fs-5 my-2">
+            <a
+              href="profile.html"
+              class="text-white mx-4 footer-item sellItemFooter d-none"
+              >Sell an Item</a
+            >
+          </li>
+        </ul>
+        <ul
+          class="list-unstyled d-flex flex-column bg-black w-35 py-2 text-white mb-5"
+        >
+          <p class="fs-5 mb-1 mx-4 my-2 footerText">Contact info</p>
+          <li class="mx-4 footerText">Email: BidHouse@gmail.com</li>
+          <li class="mx-4 footerText">Mobile: +47 555 555 22</li>
+          <li class="mx-4 footerText">Address: Arendal 22, 4822 Arendal</li>
+        </ul>
+      </div>
     </footer>
   </body>
 </html>

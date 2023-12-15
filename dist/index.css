@@ -2,6 +2,7 @@
 /*general*/
 body {
   min-height: 100%;
+  overflow-x: hidden !important;
 }
 body header {
   position: fixed;
@@ -9,6 +10,14 @@ body header {
 }
 body main {
   min-height: 90vh;
+}
+
+footer ul {
+  max-width: fit-content;
+}
+footer p {
+  max-width: fit-content;
+  word-wrap: break-word;
 }
 
 .semiTransparent {

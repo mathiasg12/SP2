@@ -13,12 +13,22 @@ $myMargins: (
 /*general*/
 body {
   min-height: 100%;
+  overflow-x: hidden !important;
   header {
     position: fixed;
     z-index: 3;
   }
   main {
     min-height: 90vh;
+  }
+}
+footer {
+  & ul {
+    max-width: fit-content;
+  }
+  & p {
+    max-width: fit-content;
+    word-wrap: break-word;
   }
 }
 .semiTransparent {

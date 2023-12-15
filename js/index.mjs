@@ -8,22 +8,15 @@ const logOutHeader = document.getElementById('logOutHeader');
 const login = document.getElementById('login');
 const signUpHeader = document.getElementById('signUpHeader');
 const creditLi = document.getElementById('creditLi');
+const profileHeader = document.querySelector('.profileHide');
+const profileFooter = document.querySelector('.profileHideFooter');
+const sellItemFooter = document.querySelector('.sellItemFooter');
 const nav = document.querySelector('nav');
 /**
  * simple addeventlitener that toggles between a class called "hamburger-menu" which toggles display between "block" and "none"
  */
 haburgerMenuIcon.addEventListener('click', () => {
   hiddenMenu.classList.toggle('hamburger-menu');
-});
-/**
- * addeventlistener that runs if a new page is about to load, then it checks if the page is profile.html it will then send "not logged in" users to login page
- */
-window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('BidHouseToken') == null) {
-    if (location.href.includes('/profile')) {
-      location.replace('/login.html');
-    }
-  }
 });
 /**
  * event listener that runs when the page is loaded it add or removes items from the header depending if the user is logged in
@@ -41,6 +34,9 @@ window.addEventListener('DOMContentLoaded', () => {
     creditLi.classList.remove('d-none');
     getProfilInfo(credit, creditLi);
     logOutHeader.classList.remove('d-none');
+    profileHeader.classList.remove('d-none');
+    profileFooter.classList.remove('d-none');
+    sellItemFooter.classList.remove('d-none');
     if (login.classList.contains('d-none') == false) {
       login.classList.add('d-none');
     }
@@ -53,6 +49,15 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     if (logOutHeader.classList.contains('d-none') == false) {
       logOutHeader.classList.add('d-none');
+    }
+    if (profileHeader.classList.contains('d-none') == false) {
+      profileHeader.classList.add('d-none');
+    }
+    if (profileFooter.classList.contains('d-none') == false) {
+      profileFooter.classList.add('d-none');
+    }
+    if (sellItemFooter.classList.contains('d-none') == false) {
+      sellItemFooter.classList.add('d-none');
     }
     signUpHeader.classList.remove('d-none');
     login.classList.remove('d-none');
