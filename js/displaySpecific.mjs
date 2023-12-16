@@ -106,6 +106,7 @@ function createHTMLSpecific(object, section, loader) {
     let allImgCon = document.createElement('div');
     let arrow = document.createElement('i');
     arrow.id = 'next';
+    arrow.setAttribute('role', 'button');
     arrow.classList.add(
       'fa-solid',
       'fa-arrow-right',
@@ -194,6 +195,7 @@ function createHTMLSpecific(object, section, loader) {
     'ctaCustomHeight',
     'my-sm-5',
     'bidCtaHover',
+    'text-black',
   );
   /**
    * event listener that runs when a a user clicks on a item with the id of placeBid it will then make a bid form, if the button is pressed
