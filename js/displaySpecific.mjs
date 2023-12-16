@@ -107,6 +107,7 @@ function createHTMLSpecific(object, section, loader) {
     let arrow = document.createElement('i');
     arrow.id = 'next';
     arrow.setAttribute('role', 'button');
+    arrow.setAttribute('tabindex', '0');
     arrow.classList.add(
       'fa-solid',
       'fa-arrow-right',

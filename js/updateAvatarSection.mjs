@@ -35,6 +35,7 @@ function createUpdateSection(con) {
       'rounded-pill',
       'ctaCustomHeight',
       'avatarBtn',
+      'text-black',
     );
     btnCancel.classList.add(
       'my-2',
@@ -42,6 +43,7 @@ function createUpdateSection(con) {
       'ctaCustomHeight',
       'bg-danger',
       'avatarBtn',
+      'text-black',
     );
     label.hidden = true;
     input.classList.add('my-2');
